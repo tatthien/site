@@ -8,6 +8,7 @@ import { MDX } from '@/mdx-components'
 
 import React from 'react'
 import { readingTime } from 'reading-time-estimator'
+import { Breadcrumb } from '@/components/breadcrumb'
 
 interface Props {
   post: Post
@@ -31,6 +32,8 @@ export const Layout = ({ post, route }: Props) => {
 
   return (
     <React.Fragment>
+      <Breadcrumb post={post} />
+
       <div className="mb-10 flex flex-col">
         <div>
           <h1 className="text-2xl">{post.title}</h1>
