@@ -1,26 +1,26 @@
-import "@/styles/main.css";
+import '@/styles/main.css'
 
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 
-import { Providers } from "@/components/providers";
-import { OpenGraph } from "@/lib/og";
+import { Providers } from '@/components/providers'
+import { OpenGraph } from '@/lib/og'
 
-import clsx from "clsx";
-import { Inter } from "next/font/google";
+import clsx from 'clsx'
+import { Inter } from 'next/font/google'
 
 export const metadata: Metadata = {
   ...OpenGraph,
-};
+}
 
 const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-});
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
@@ -32,5 +32,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

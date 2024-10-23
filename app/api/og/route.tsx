@@ -1,10 +1,11 @@
-import { ImageResponse } from "next/og";
+import { ImageResponse } from 'next/og'
 
-export const runtime = "edge";
+export const runtime = 'edge'
 
 type Parameters = {
-  title?: string;
-};
+  title?: string
+  date?: string
+}
 
 /*
  * To assist with generating dynamic Open Graph (OG) images, you can use the Vercel @vercel/og library to compute and generate social card images using Vercel Edge Functions.
@@ -20,50 +21,81 @@ export async function GET(request: Request) {
     /*
      * Next we are going to extract the parameters from the request URL.
      */
-    const { searchParams } = new URL(request.url);
-    const parameters: Parameters = Object.fromEntries(searchParams);
-    const { title } = parameters;
-    console.log(parameters);
+    const { searchParams } = new URL(request.url)
+    const parameters: Parameters = Object.fromEntries(searchParams)
+    const { title, date } = parameters
 
     /*
      * Finally we are fetching the font file from the public directory.
      */
-    const inter = fetch(new URL("/public/assets/inter/regular.ttf", import.meta.url)).then((res) => res.arrayBuffer());
+    const inter400 = fetch(new URL('/public/assets/inter/regular.ttf', import.meta.url)).then((res) => res.arrayBuffer())
+
+    const inter600 = fetch(new URL('/public/assets/inter/semi-bold.ttf', import.meta.url)).then((res) => res.arrayBuffer())
 
     return new ImageResponse(
       <div
         style={{
           /* layout */
-          display: "flex",
-          width: "100%",
-          height: "100%",
-
-          /* box */
-          padding: "40px",
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%',
+          height: '100%',
 
           /* style */
-          fontSize: "24px",
-          letterSpacing: "-0.47px",
-          backgroundColor: "black",
+          fontSize: '24px',
+          letterSpacing: '-0.47px',
+          backgroundColor: '#fff',
         }}
       >
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            height: "24px",
+            display: 'flex',
+            alignItems: 'center',
+            flex: '1',
             gap: 12,
+            padding: '60px',
           }}
         >
-          <div style={{ color: "rgba(255, 255, 255, 0.92)" }}>next-sylph-portfolio</div>
-          {title && <div style={{ color: "rgba(255, 255, 255, 0.39)" }}>/</div>}
-          {title ? (
-            <div style={{ color: "rgba(255, 255, 255, 0.39)" }}>{title.toLowerCase()}</div>
-          ) : (
-            <svg width="16" viewBox="0 0 75 65" fill="white">
-              <path d="M37.59.25l36.95 64H.64l36.95-64z" />
-            </svg>
-          )}
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {title ? (
+              <div
+                style={{
+                  color: '#000',
+                  fontSize: '60px',
+                  fontWeight: 600,
+                  marginBottom: '16px',
+                }}
+              >
+                {title}
+              </div>
+            ) : (
+              <svg width="16" viewBox="0 0 75 65" fill="white">
+                <path d="M37.59.25l36.95 64H.64l36.95-64z" />
+              </svg>
+            )}
+            {date && <div style={{ color: 'rgba(0, 0, 0, 0.4)' }}>{date}</div>}
+          </div>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            padding: '20px 60px',
+            background: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
+            color: '#fff',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              width: '24px',
+              height: '24px',
+              borderRadius: '24px',
+              background: '#fff',
+            }}
+          />
+          thien.dev
         </div>
       </div>,
       {
@@ -71,16 +103,21 @@ export async function GET(request: Request) {
         height: 600,
         fonts: [
           {
-            name: "Inter",
-            data: await inter,
+            name: 'Inter',
+            data: await inter400,
             weight: 400,
+          },
+          {
+            name: 'Inter',
+            data: await inter600,
+            weight: 600,
           },
         ],
       },
-    );
+    )
   } catch {
-    return new Response("Failed to generate the image", {
+    return new Response('Failed to generate the image', {
       status: 500,
-    });
+    })
   }
 }

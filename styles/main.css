@@ -64,7 +64,7 @@
   }
 
   html {
-    @apply text-default text-foreground bg-background;
+    @apply text-foreground bg-background;
 
     h1,
     h2,
@@ -75,8 +75,6 @@
       @apply font-medium;
     }
 
-    h2,
-    h3,
     sub,
     sup {
       @apply text-muted;
@@ -142,7 +140,7 @@
     ol:not(:first-child),
     pre:not(:first-child),
     figure:not(:first-child) {
-      margin-top: 24px;
+      margin-bottom: 24px;
     }
 
     /*
@@ -290,7 +288,7 @@
     pre {
       padding: 16px;
       overflow-x: auto;
-      font-size: 12px;
+      font-size: 0.875rem;
 
       [data-line] {
         margin-top: 0 !important;

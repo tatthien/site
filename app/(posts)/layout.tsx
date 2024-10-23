@@ -1,6 +1,6 @@
-import { Breadcrumb } from "@/components/breadcrumb";
+import { Breadcrumb } from '@/components/breadcrumb'
 
-import React from "react";
+import React from 'react'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,5 +8,5 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Breadcrumb />
       {children}
     </React.Fragment>
-  );
+  )
 }

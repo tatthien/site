@@ -1,0 +1,15 @@
+---
+title: Delete a folder recursively from a specified path
+date: 2022-05-16T10:04:00Z
+draft: false
+tags: en
+time:
+  created: "2024-03-04T14:28:22.050Z"
+  updated: "2024-10-23T03:53:47.095Z"
+---
+
+I need to delete all node_modules (other) folder recursively from a specified path using the command line interface. Here's what I use.
+
+```bash
+find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+```
