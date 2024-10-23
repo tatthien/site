@@ -28,8 +28,6 @@ export async function GET(request: Request) {
     /*
      * Finally we are fetching the font file from the public directory.
      */
-    const inter400 = fetch(new URL('/public/assets/inter/regular.ttf', import.meta.url)).then((res) => res.arrayBuffer())
-
     const inter600 = fetch(new URL('/public/assets/inter/semi-bold.ttf', import.meta.url)).then((res) => res.arrayBuffer())
 
     return new ImageResponse(
@@ -102,11 +100,6 @@ export async function GET(request: Request) {
         width: 1200,
         height: 600,
         fonts: [
-          {
-            name: 'Inter',
-            data: await inter400,
-            weight: 400,
-          },
           {
             name: 'Inter',
             data: await inter600,
