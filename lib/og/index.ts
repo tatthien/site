@@ -15,7 +15,7 @@ export const OpenGraph: Metadata = {
     title: 'Thien Nguyen',
     description: 'Sharing my interest in a little of everything that crosses my mind, but mostly in technology.',
     images: [
-      `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent('Thien Nguyen')}&date=${encodeURIComponent('Sharing my interest in a little of everything that crosses my mind, but mostly in technology.')}`,
+      `/api/og?title=${encodeURIComponent('Thien Nguyen')}&date=${encodeURIComponent('Sharing my interest in a little of everything that crosses my mind, but mostly in technology.')}`,
     ],
     siteName: 'Thien Nguyen',
   },
@@ -24,7 +24,7 @@ export const OpenGraph: Metadata = {
     title: 'Thien Nguyen',
     description: 'Sharing my interest in a little of everything that crosses my mind, but mostly in technology.',
     images: [
-      `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent('Thien Nguyen')}&date=${encodeURIComponent('Sharing my interest in a little of everything that crosses my mind, but mostly in technology.')}`,
+      `/api/og?title=${encodeURIComponent('Thien Nguyen')}&date=${encodeURIComponent('Sharing my interest in a little of everything that crosses my mind, but mostly in technology.')}`,
     ],
   },
   robots: {

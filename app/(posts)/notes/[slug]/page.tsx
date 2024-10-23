@@ -25,7 +25,7 @@ export function generateMetadata({ params }: PageProps) {
   const post = Posts.find((post: { slug: string }) => post.slug === params.slug)
   const title = post ? post.title : ''
   const date = post ? post.date : ''
-  const image = `${process.env.NEXT_PUBLIC_SITE_URL}api/og?title=${encodeURIComponent(title)}&date=${encodeURIComponent(formatter.date(new Date(date)))}`
+  const image = `/api/og?title=${encodeURIComponent(title)}&date=${encodeURIComponent(formatter.date(new Date(date)))}`
 
   return {
     ...OpenGraph,
