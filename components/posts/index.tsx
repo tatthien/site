@@ -22,7 +22,7 @@ export const Posts = ({ category }: PostProps) => {
   return (
     <div className="mt-6 flex flex-col">
       <Link href={`/${category}`} prefetch={true} className="flex justify-between">
-        <h2 className="py-2 text-muted capitalize">
+        <h2 className="py-2 text-gray-9 capitalize">
           {category} {posts.length > 0 && `(${posts.length})`}
         </h2>
       </Link>
@@ -33,7 +33,7 @@ export const Posts = ({ category }: PostProps) => {
             <Seperator />
             <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full justify-between py-2">
               <p>{post.title}</p>
-              <p className="mb-0 text-muted slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
+              <p className="mb-0 text-gray-9 slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
             </Link>
           </React.Fragment>
         )

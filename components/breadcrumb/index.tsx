@@ -21,11 +21,11 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
     .map((path) => path === post.slug ? post.title : path.replace(/-/g, '').replace(/\b\w/g, (char) => char.toUpperCase()))
 
   return (
-    <div className={cn('mt-0 mb-4 flex w-full items-center gap-1 align-middle font-normal text-small')}>
-      <Link className="text-muted" href="/" prefetch={true}>
+    <div className={cn('mt-0 mb-4 flex w-full items-center gap-1 align-middle font-normal text-sm')}>
+      <Link className="text-gray-9" href="/" prefetch={true}>
         Home
       </Link>
-      <ChevronRightIcon className="text-muted" />
+      <ChevronRightIcon className="text-gray-9" />
       {paths.map((path, index) => {
         const href = `/${paths
           .slice(0, index + 1)
@@ -37,9 +37,9 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
         return (
           <React.Fragment key={path}>
             {isLast ? (
-              <span className="text-muted">{path}</span>
+              <span className="text-gray-9">{path}</span>
             ) : (
-              <Link className="text-muted" href={href} prefetch={true}>
+              <Link className="text-gray-9" href={href} prefetch={true}>
                 {path}
               </Link>
             )}

@@ -1,6 +1,6 @@
 import type { Post } from '@/types'
 
-import { TableOfContents } from '@/components/on-this-page'
+import { TableOfContents } from '@/components/table-of-contents'
 import { PostNavigation } from '@/components/post-navigation'
 import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
@@ -23,7 +23,7 @@ export const Layout = ({ post, route }: Props) => {
   }
 
   const PublishedTime = () => {
-    return <div>Published {formatter.date(new Date(post.date))}</div>
+    return <div>{formatter.date(new Date(post.date))}</div>
   }
 
   const ReadingTime = () => {
@@ -38,7 +38,7 @@ export const Layout = ({ post, route }: Props) => {
         <div>
           <h1 className="text-2xl">{post.title}</h1>
         </div>
-        <div className="mt-1 flex gap-2 text-muted text-small">
+        <div className="mt-1 flex gap-2 text-gray-9 text-sm">
           <PublishedTime />
           <Seperator />
           <ReadingTime />

@@ -52,7 +52,7 @@ const components: MDXComponents = {
     )
   },
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <blockquote className={cn('mt-6 border-gray-4 border-l-2 pl-6 text-gray-8', className)} {...props} />
+    <blockquote className={cn('mt-6 border-gray-6 border-l-2 pl-6 text-gray-9', className)} {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-hidden overflow-y-auto">

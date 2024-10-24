@@ -26,14 +26,14 @@ function PostNavigation({ posts }: PostNavigationProps) {
   return (
     <div className="mt-16 flex w-full justify-between border-border border-t pt-8">
       {previous && (
-        <Link href={`${previous.slug}`} prefetch={true} className="flex w-full flex-col gap-1 text-left">
-          <span className="text-muted">Previous</span>
+        <Link href={`${previous.slug}`} prefetch={true} className="flex w-full flex-col gap-0.5 text-left">
+          <span className="text-gray-9 text-sm">Previous</span>
           <span>{previous.title}</span>
         </Link>
       )}
       {next && (
-        <Link href={`${next.slug}`} prefetch={true} className="flex w-full flex-col gap-1 text-right">
-          <span className="text-muted">Next</span>
+        <Link href={`${next.slug}`} prefetch={true} className="flex w-full flex-col gap-0.5 text-right">
+          <span className="text-gray-9 text-sm">Next</span>
           <span>{next.title}</span>
         </Link>
       )}
