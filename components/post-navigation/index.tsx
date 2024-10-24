@@ -1,8 +1,8 @@
 'use client'
 
 import type { Post } from '@/types/post/index'
+import Link from 'next/link'
 
-import { Link } from 'next-view-transitions'
 import { usePathname } from 'next/navigation'
 
 interface PostNavigationProps {
@@ -26,13 +26,13 @@ function PostNavigation({ posts }: PostNavigationProps) {
   return (
     <div className="mt-16 flex w-full justify-between border-border border-t pt-8">
       {previous && (
-        <Link href={`${previous.slug}`} className="flex w-full flex-col gap-1 text-left">
+        <Link href={`${previous.slug}`} prefetch={true} className="flex w-full flex-col gap-1 text-left">
           <span className="text-muted">Previous</span>
           <span>{previous.title}</span>
         </Link>
       )}
       {next && (
-        <Link href={`${next.slug}`} className="flex w-full flex-col gap-1 text-right">
+        <Link href={`${next.slug}`} prefetch={true} className="flex w-full flex-col gap-1 text-right">
           <span className="text-muted">Next</span>
           <span>{next.title}</span>
         </Link>

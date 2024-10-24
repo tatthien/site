@@ -4,7 +4,7 @@ import { cn } from '@/lib/cn'
 import type { Post } from '@/types'
 
 import { ChevronRightIcon } from '@radix-ui/react-icons'
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 
@@ -22,7 +22,7 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
 
   return (
     <div className={cn('mt-0 mb-4 flex w-full items-center gap-1 align-middle font-normal text-small')}>
-      <Link className="text-muted" href="/">
+      <Link className="text-muted" href="/" prefetch={true}>
         Home
       </Link>
       <ChevronRightIcon className="text-muted" />
@@ -39,7 +39,7 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
             {isLast ? (
               <span className="text-muted">{path}</span>
             ) : (
-              <Link className="text-muted" href={href}>
+              <Link className="text-muted" href={href} prefetch={true}>
                 {path}
               </Link>
             )}

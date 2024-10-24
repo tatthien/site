@@ -1,7 +1,7 @@
 import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
 
-import { Link as NextViewTransition } from 'next-view-transitions'
+import Link from 'next/link'
 import React from 'react'
 
 interface PostProps {
@@ -21,20 +21,20 @@ export const Posts = ({ category }: PostProps) => {
 
   return (
     <div className="mt-6 flex flex-col">
-      <NextViewTransition href={`/${category}`} className="flex justify-between">
+      <Link href={`/${category}`} prefetch={true} className="flex justify-between">
         <h2 className="py-2 text-muted capitalize">
           {category} {posts.length > 0 && `(${posts.length})`}
         </h2>
-      </NextViewTransition>
+      </Link>
 
       {posts.map((post) => {
         return (
           <React.Fragment key={post.slug}>
             <Seperator />
-            <NextViewTransition href={`/${category}/${post.slug}`} className="flex w-full justify-between py-2">
+            <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full justify-between py-2">
               <p>{post.title}</p>
               <p className="mb-0 text-muted slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
-            </NextViewTransition>
+            </Link>
           </React.Fragment>
         )
       })}
