@@ -24,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="https://fav.farm/🍱" />
+      </head>
       <body>
         <Providers>
           <main className="mx-auto max-w-screen-sm overflow-x-hidden px-6 py-24 md:overflow-x-visible ">
