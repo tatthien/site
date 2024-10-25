@@ -37,7 +37,7 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
         return (
           <React.Fragment key={path}>
             {isLast ? (
-              <span className="text-gray-9">{path}</span>
+              <span className="text-gray-9 truncate">{path}</span>
             ) : (
               <Link className="text-gray-9" href={href} prefetch={true}>
                 {path}
