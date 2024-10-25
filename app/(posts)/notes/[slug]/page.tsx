@@ -32,11 +32,13 @@ export function generateMetadata({ params }: PageProps) {
     title,
     description: post?.description ?? OpenGraph.description,
     openGraph: {
+      ...OpenGraph.openGraph,
       title,
       description: post?.description ?? OpenGraph.openGraph?.description,
       images: [image],
     },
     twitter: {
+      ...OpenGraph.twitter,
       title,
       description: post?.description ?? OpenGraph.twitter?.description,
       images: [image],
