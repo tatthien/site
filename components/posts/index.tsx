@@ -20,7 +20,7 @@ export const Posts = ({ category }: PostProps) => {
   }
 
   return (
-    <div className="mt-6 flex flex-col">
+    <div className="flex flex-col">
       <Link href={`/${category}`} prefetch={true} className="flex justify-between">
         <h2 className="py-2 text-gray-9 capitalize">
           {category} {posts.length > 0 && `(${posts.length})`}
@@ -31,8 +31,8 @@ export const Posts = ({ category }: PostProps) => {
         return (
           <React.Fragment key={post.slug}>
             <Seperator />
-            <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full justify-between py-2">
-              <p>{post.title}</p>
+            <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex flex-wrap md:flex-nowrap w-full justify-between py-2">
+              <p className="flex-grow w-full md:flex-auto md:w-auto">{post.title}</p>
               <p className="mb-0 text-gray-9 slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
             </Link>
           </React.Fragment>

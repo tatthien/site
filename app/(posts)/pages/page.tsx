@@ -1,7 +1,7 @@
 import { Posts } from '@/components/posts'
 import { OpenGraph } from '@/lib/og'
 
-const category = 'notes'
+const category = 'pages'
 
 export function generateMetadata() {
   const image = `/api/og?title=${encodeURIComponent(category)}`
