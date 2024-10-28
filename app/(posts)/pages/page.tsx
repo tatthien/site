@@ -1,3 +1,4 @@
+import { Card } from '@/components/card'
 import { Posts } from '@/components/posts'
 import { OpenGraph } from '@/lib/og'
 
@@ -21,6 +22,8 @@ export function generateMetadata() {
 
 export default function Page() {
   return (
-    <Posts category={category} />
+    <Card>
+      <Posts category={category} />
+    </Card>
   )
 }

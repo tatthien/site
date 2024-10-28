@@ -9,7 +9,7 @@ interface PostProps {
   limit?: number
 }
 
-export const Posts = ({ category, limit = -1 }: PostProps) => {
+export const Posts = ({ category, limit }: PostProps) => {
   const posts = getPosts(category).sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
