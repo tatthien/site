@@ -21,7 +21,7 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
     .map((path) => path === post.slug ? post.title : path.replace(/-/g, '').replace(/\b\w/g, (char) => char.toUpperCase()))
 
   return (
-    <div className={cn('mt-0 mb-4 flex w-full items-center gap-1 align-middle font-normal text-sm')}>
+    <div className={cn('flex w-full items-center gap-1 align-middle font-normal text-sm')}>
       <Link className="text-gray-9" href="/" prefetch={true}>
         Home
       </Link>

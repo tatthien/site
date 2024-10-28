@@ -9,6 +9,7 @@ import { MDX } from '@/mdx-components'
 import React from 'react'
 import { readingTime } from 'reading-time-estimator'
 import { Breadcrumb } from '@/components/breadcrumb'
+import { Card } from '@/components/card'
 
 interface Props {
   post: Post
@@ -31,23 +32,23 @@ export const Layout = ({ post, route }: Props) => {
   }
 
   return (
-    <React.Fragment>
+    <div className='flex flex-col gap-6'>
       <Breadcrumb post={post} />
-
-      <div className="mb-10 flex flex-col">
-        <div>
-          <h1 className="text-2xl">{post.title}</h1>
+      <Card>
+        <div className="mb-10 flex flex-col">
+          <div>
+            <h1 className="text-2xl">{post.title}</h1>
+          </div>
+          <div className="mt-1 flex gap-2 text-gray-9 text-sm">
+            <PublishedTime />
+            <Seperator />
+            <ReadingTime />
+          </div>
         </div>
-        <div className="mt-1 flex gap-2 text-gray-9 text-sm">
-          <PublishedTime />
-          <Seperator />
-          <ReadingTime />
-        </div>
-      </div>
-
-      <MDX source={post.content} />
+        <MDX source={post.content} />
+      </Card>
       <PostNavigation posts={posts} />
       <TableOfContents />
-    </React.Fragment>
+    </div>
   )
 }

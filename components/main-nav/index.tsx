@@ -20,7 +20,7 @@ const menus = [
 
 export function MainNav() {
   return (
-    <aside className='py-6 px-6 lg:absolute lg:py-0 lg:px-0 lg:top-[100px] lg:right-[50%] lg:mr-[400px]'>
+    <aside className='py-6 px-4 lg:absolute lg:py-0 lg:px-0 lg:top-[100px] lg:right-[50%] lg:mr-[360px]'>
       <ul className="flex flex-col gap-1">
         {menus.map(({ label, href }) => (
           <li key={href} className='list-none relative text-sm'>

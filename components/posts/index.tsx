@@ -6,9 +6,10 @@ import React from 'react'
 
 interface PostProps {
   category: string
+  limit?: number
 }
 
-export const Posts = ({ category }: PostProps) => {
+export const Posts = ({ category, limit = -1 }: PostProps) => {
   const posts = getPosts(category).sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
@@ -27,7 +28,7 @@ export const Posts = ({ category }: PostProps) => {
         </h2>
       </Link>
 
-      {posts.map((post) => {
+      {posts.slice(0, limit).map((post) => {
         return (
           <React.Fragment key={post.slug}>
             <Seperator />
