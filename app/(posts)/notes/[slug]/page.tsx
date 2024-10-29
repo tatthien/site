@@ -35,13 +35,27 @@ export function generateMetadata({ params }: PageProps) {
       ...OpenGraph.openGraph,
       title,
       description: post?.description ?? OpenGraph.openGraph?.description,
-      images: [image],
+      images: [
+        {
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+          url: image
+        }
+      ],
     },
     twitter: {
       ...OpenGraph.twitter,
       title,
       description: post?.description ?? OpenGraph.twitter?.description,
-      images: [image],
+      images: [
+        {
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+          url: image
+        }
+      ],
     },
   }
 }

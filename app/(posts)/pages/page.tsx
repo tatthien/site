@@ -12,10 +12,24 @@ export function generateMetadata() {
     category,
     openGraph: {
       title: category,
-      images: [image],
+      images: [
+        {
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+          url: image
+        }
+      ],
     },
     twitter: {
-      images: [image],
+      images: [
+        {
+          type: 'image/png',
+          width: 1200,
+          height: 630,
+          url: image
+        }
+      ],
     },
   }
 }
