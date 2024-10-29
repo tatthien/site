@@ -42,36 +42,44 @@ export async function GET(request: Request) {
           /* style */
           fontSize: '24px',
           letterSpacing: '-0.47px',
-          backgroundColor: '#fff',
+          background: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flex: '1',
-            gap: 12,
-            padding: '60px',
-          }}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {title ? (
-              <div
-                style={{
-                  color: '#000',
-                  fontSize: '60px',
-                  fontWeight: 600,
-                  marginBottom: '16px',
-                }}
-              >
-                {title}
-              </div>
-            ) : (
-              <svg width="16" viewBox="0 0 75 65" fill="white">
-                <path d="M37.59.25l36.95 64H.64l36.95-64z" />
-              </svg>
-            )}
-            {date && <div style={{ color: 'rgba(0, 0, 0, 0.4)' }}>{date}</div>}
+        <div style={{
+          display: 'flex',
+          flex: '1',
+          padding: '16px',
+        }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              flex: '1',
+              gap: 12,
+              padding: '60px',
+              background: '#fff'
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {title ? (
+                <div
+                  style={{
+                    color: '#000',
+                    fontSize: '80px',
+                    lineHeight: '86px',
+                    fontWeight: 600,
+                    marginBottom: '16px',
+                  }}
+                >
+                  {title}
+                </div>
+              ) : (
+                <svg width="16" viewBox="0 0 75 65" fill="white">
+                  <path d="M37.59.25l36.95 64H.64l36.95-64z" />
+                </svg>
+              )}
+              {date && <div style={{ color: 'rgba(0, 0, 0, 0.4)' }}>{date}</div>}
+            </div>
           </div>
         </div>
         <div
@@ -79,7 +87,7 @@ export async function GET(request: Request) {
             display: 'flex',
             alignItems: 'center',
             gap: '10px',
-            padding: '20px 60px',
+            padding: '8px 40px 20px 40px',
             background: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
             color: '#fff',
           }}
