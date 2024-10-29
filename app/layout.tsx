@@ -27,6 +27,7 @@ export default function RootLayout({
     <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
       <head>
         <link rel="icon" href="https://fav.farm/🍱" />
+        <script async src="https://cdn.seline.so/seline.js" data-token="5f9a845fc6de2f6" />
       </head>
       <body>
         <Providers>
