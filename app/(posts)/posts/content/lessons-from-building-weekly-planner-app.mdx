@@ -8,9 +8,7 @@ time:
   updated: "2024-10-23T04:20:44.952Z"
 ---
 
-<div class="mb-4">
-<img src="/img/lessons-from-building-weekly-planner-app/featured.webp" />
-</div>
+![Featured image](/img/lessons-from-building-weekly-planner-app/featured.webp)
 
 There are some changes in my work since I have free time to build this project. It's a weekly planner and to-do list app that aims to enhance your productivity and keeps track of all your stuff in a week calendar view.
 
@@ -123,7 +121,7 @@ Here, we are telling Vue to move the modal to the `body` tag. You can open the d
 
 Using `<Teleport>`:
 
-```bash
+```text
 body          
 | #app        
 | | div       
@@ -133,7 +131,7 @@ body
 
 Not using `<Teleport>`:
 
-```bash
+```text
 body              
 | #app            
 | | div           
@@ -148,6 +146,7 @@ The `hsl` is a short hand of `hue`, `saturation`, and `lightness`.
 By using a single color code, I can use `hsl()` to set the background / text color for MyWeek's labels. The tip is to decrease / increase the `lightness` value (Noted: it doesn't always work as expected).
 
 ![HSL 1](/img/lessons-from-building-weekly-planner-app/hsl-1.webp)
+
 ![HSL 2](/img/lessons-from-building-weekly-planner-app/hsl-2.webp)
 
 The syntax of `hsl`:

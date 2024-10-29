@@ -14,6 +14,7 @@ import React from 'react'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import Image from 'next/image'
 
 const components: MDXComponents = {
   PreviewExample: () => {
@@ -108,10 +109,31 @@ const components: MDXComponents = {
             }
             return child
           })}
+
         </li>
       )
     }
     return <li className={cn('mt-2 ml-2 list-item', className)}>{children}</li>
+  },
+  img: ({ alt, src }) => {
+    return (
+      <Image
+        alt={alt as string}
+        src={src as string}
+        width={1000}
+        height={1000}
+        sizes="100vw"
+        style={{
+          objectFit: 'contain',
+          marginLeft: '-20px',
+          width: 'calc(100% + 40px)',
+          maxWidth: 'calc(100% + 40px)',
+          height: 'auto',
+          objectPosition: 'center',
+          transition: 'all 0.3s ease-in-out',
+        }}
+      />
+    )
   },
 }
 
