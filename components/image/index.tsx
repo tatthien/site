@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 interface MDXImageProps extends ImageProps {
   alt: string
-  caption?: string
+  caption?: React.ReactNode
 }
 
 export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
@@ -26,7 +26,7 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
         }}
         {...props}
       />
-      {caption && <figcaption className="pt-2 text-center">{caption}</figcaption>}
+      {caption && <figcaption>{caption}</figcaption>}
     </figure>
   )
 }

@@ -21,15 +21,13 @@ const menus = [
 
 export function MainNav() {
   return (
-    <aside className="px-4 py-6 lg:absolute lg:top-[100px] lg:right-[50%] lg:mr-[360px] lg:px-0 lg:py-0">
-      <ul className="flex flex-col gap-1">
-        {menus.map(({ label, href }) => (
-          <li key={href} className="relative list-none text-sm">
-            <NavLink label={label} href={href} />
-          </li>
-        ))}
-      </ul>
-    </aside>
+    <ul className="flex flex-col gap-1">
+      {menus.map(({ label, href }) => (
+        <li key={href} className="relative list-none text-sm">
+          <NavLink label={label} href={href} />
+        </li>
+      ))}
+    </ul>
   )
 }
 
