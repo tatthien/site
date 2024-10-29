@@ -1,0 +1,9 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "project": ["**/*.{js,ts,tsx}"],
+  "ignore": ["jest.config.ts", "mdx-components.tsx", "postcss.config.mjs"],
+  "ignoreBinaries": ["prettier"],
+  "paths": {
+    "@/*": ["./*"]
+  }
+}

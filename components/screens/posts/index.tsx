@@ -7,6 +7,7 @@ import { TableOfContents } from '@/components/table-of-contents'
 import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
 import { MDX } from '@/mdx-components'
+
 import { readingTime } from 'reading-time-estimator'
 
 interface Props {

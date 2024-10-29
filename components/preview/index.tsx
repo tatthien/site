@@ -1,5 +1,3 @@
-import type React from 'react'
-
 import styles from './styles.module.css'
 
 const Preview = ({ children, codeblock }: React.HTMLAttributes<HTMLDivElement> & { codeblock?: string }) => (
