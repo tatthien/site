@@ -1,8 +1,8 @@
 'use client'
 
 import type { Post } from '@/types/post/index'
-import Link from 'next/link'
 
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 interface PostNavigationProps {

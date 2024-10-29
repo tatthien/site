@@ -2,12 +2,12 @@ import '@/styles/main.css'
 
 import type { Metadata } from 'next'
 
+import { MainNav } from '@/components/main-nav'
 import { Providers } from '@/components/providers'
 import { OpenGraph } from '@/lib/og'
 
 import clsx from 'clsx'
 import { Inter } from 'next/font/google'
-import { MainNav } from '@/components/main-nav'
 
 export const metadata: Metadata = {
   ...OpenGraph,

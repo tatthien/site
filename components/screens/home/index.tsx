@@ -7,7 +7,7 @@ export default function Home() {
     <div className="flex flex-col gap-6">
       <Card>
         <h1 className="font-semibold text-xl">Thien Nguyen (aka. Daniel)</h1>
-        <h2 className="font-normal mb-0">Sharing my interest in a little of everything that crosses my mind, but mostly in technology.</h2>
+        <h2 className="mb-0 font-normal">Sharing my interest in a little of everything that crosses my mind, but mostly in technology.</h2>
       </Card>
       <Card>
         <Posts category="notes" limit={10} />

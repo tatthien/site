@@ -20,7 +20,7 @@ export const OpenGraph: Metadata = {
         width: 1200,
         height: 630,
         url: `/api/og?title=${encodeURIComponent('Thien Nguyen')}&date=${encodeURIComponent('Sharing my interest in a little of everything that crosses my mind, but mostly in technology.')}`,
-      }
+      },
     ],
     siteName: 'Thien Nguyen',
   },
@@ -34,9 +34,9 @@ export const OpenGraph: Metadata = {
         width: 1200,
         height: 630,
         url: `/api/og?title=${encodeURIComponent('Thien Nguyen')}&date=${encodeURIComponent('Sharing my interest in a little of everything that crosses my mind, but mostly in technology.')}`,
-      }
+      },
     ],
-    site: 'hey_thien'
+    site: 'hey_thien',
   },
   robots: {
     index: true,

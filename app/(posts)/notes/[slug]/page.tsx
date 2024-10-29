@@ -40,8 +40,8 @@ export function generateMetadata({ params }: PageProps) {
           type: 'image/png',
           width: 1200,
           height: 630,
-          url: image
-        }
+          url: image,
+        },
       ],
     },
     twitter: {
@@ -53,8 +53,8 @@ export function generateMetadata({ params }: PageProps) {
           type: 'image/png',
           width: 1200,
           height: 630,
-          url: image
-        }
+          url: image,
+        },
       ],
     },
   }

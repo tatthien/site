@@ -45,11 +45,13 @@ export async function GET(request: Request) {
           background: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
         }}
       >
-        <div style={{
-          display: 'flex',
-          flex: '1',
-          padding: '16px',
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            flex: '1',
+            padding: '16px',
+          }}
+        >
           <div
             style={{
               display: 'flex',
@@ -57,7 +59,7 @@ export async function GET(request: Request) {
               flex: '1',
               gap: 12,
               padding: '60px',
-              background: '#fff'
+              background: '#fff',
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column' }}>

@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@/lib/cn'
 import type { Post } from '@/types'
+
+import { cn } from '@/lib/cn'
 
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
@@ -18,7 +19,7 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
   const paths = pathname
     .split('/')
     .filter((path) => path !== '')
-    .map((path) => path === post.slug ? post.title : path.replace(/-/g, '').replace(/\b\w/g, (char) => char.toUpperCase()))
+    .map((path) => (path === post.slug ? post.title : path.replace(/-/g, '').replace(/\b\w/g, (char) => char.toUpperCase())))
 
   return (
     <div className={cn('flex w-full items-center gap-1 align-middle font-normal text-sm')}>
@@ -37,7 +38,7 @@ export const Breadcrumb = ({ post }: BreadcrumbProps) => {
         return (
           <React.Fragment key={path}>
             {isLast ? (
-              <span className="text-gray-9 truncate">{path}</span>
+              <span className="truncate text-gray-9">{path}</span>
             ) : (
               <Link className="text-gray-9" href={href} prefetch={true}>
                 {path}

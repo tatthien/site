@@ -32,8 +32,8 @@ export const Posts = ({ category, limit }: PostProps) => {
         return (
           <React.Fragment key={post.slug}>
             <Seperator />
-            <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex flex-wrap md:flex-nowrap w-full justify-between py-2">
-              <p className="flex-grow w-full md:flex-auto md:w-auto">{post.title}</p>
+            <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full flex-wrap justify-between py-2 md:flex-nowrap">
+              <p className="w-full flex-grow md:w-auto md:flex-auto">{post.title}</p>
               <p className="mb-0 text-gray-9 slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
             </Link>
           </React.Fragment>
