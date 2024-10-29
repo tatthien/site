@@ -2,7 +2,7 @@ import { Card } from '@/components/card'
 import { Posts } from '@/components/posts'
 import { OpenGraph } from '@/lib/og'
 
-const category = 'notes'
+const category = 'posts'
 
 export function generateMetadata() {
   const image = `/api/og?title=${encodeURIComponent(category)}`
@@ -17,8 +17,8 @@ export function generateMetadata() {
           type: 'image/png',
           width: 1200,
           height: 630,
-          url: image,
-        },
+          url: image
+        }
       ],
     },
     twitter: {
@@ -27,8 +27,8 @@ export function generateMetadata() {
           type: 'image/png',
           width: 1200,
           height: 630,
-          url: image,
-        },
+          url: image
+        }
       ],
     },
   }

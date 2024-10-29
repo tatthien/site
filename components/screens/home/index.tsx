@@ -1,6 +1,7 @@
 import { Card } from '@/components/card'
 import { Footer } from '@/components/footer'
 import { Posts } from '@/components/posts'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -10,7 +11,10 @@ export default function Home() {
         <h2 className="mb-0 font-normal">Sharing my interest in a little of everything that crosses my mind, but mostly in technology.</h2>
       </Card>
       <Card>
-        <Posts category="notes" limit={10} />
+        <Link href={'/posts'} prefetch={true} className="flex justify-between">
+          <h2 className="py-2 text-gray-9 capitalize">Writing ⇢</h2>
+        </Link>
+        <Posts category="posts" limit={10} />
       </Card>
       <Footer />
     </div>

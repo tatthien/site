@@ -3,6 +3,7 @@ import { getPosts } from '@/lib/mdx'
 
 import Link from 'next/link'
 import React from 'react'
+import { Seperator } from '../separator'
 
 interface PostProps {
   category: string
@@ -12,9 +13,7 @@ interface PostProps {
 export const Posts = ({ category, limit }: PostProps) => {
   const posts = getPosts(category).sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
-  })
-
-  const Seperator = () => <div className="border-border border-t" />
+  }).slice(0, limit)
 
   if (posts.length === 0) {
     return null
@@ -22,20 +21,14 @@ export const Posts = ({ category, limit }: PostProps) => {
 
   return (
     <div className="flex flex-col">
-      <Link href={`/${category}`} prefetch={true} className="flex justify-between">
-        <h2 className="py-2 text-gray-9 capitalize">
-          {category} {posts.length > 0 && `(${posts.length})`}
-        </h2>
-      </Link>
-
-      {posts.slice(0, limit).map((post) => {
+      {posts.map((post, index) => {
         return (
           <React.Fragment key={post.slug}>
-            <Seperator />
             <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full flex-wrap justify-between py-2 md:flex-nowrap">
               <p className="w-full flex-grow md:w-auto md:flex-auto">{post.title}</p>
               <p className="mb-0 text-gray-9 slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
             </Link>
+            {index < posts.length - 1 && <Seperator />}
           </React.Fragment>
         )
       })}
