@@ -8,10 +8,9 @@
     "start": "next start",
     "postbuild": "next-sitemap",
     "mdx:timestamps": "node ./scripts/update-mdx-timestamps",
-    "lint:style": "npx stylelint \"**/*.css\" --fix",
     "lint:biome": "npx biome check --fix --unsafe .",
     "lint:prettier": "npx prettier . --write --log-level warn",
-    "lint": "npm run lint:style && npm run lint:prettier && npm run lint:biome"
+    "lint": "npm run lint:prettier && npm run lint:biome"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",

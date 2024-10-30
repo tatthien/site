@@ -10,9 +10,9 @@ const nextConfig = {
         source: '/notes/:slug',
         destination: '/posts/:slug',
         permanent: true,
-      }
+      },
     ]
-  }
+  },
 }
 
 const withMDX = nextMDX({

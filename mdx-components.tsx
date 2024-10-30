@@ -10,11 +10,11 @@ import Preview from '@/components/preview'
 import { cn } from '@/lib/cn'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import Image from 'next/image'
 import React from 'react'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-import Image from 'next/image'
 
 const components: MDXComponents = {
   PreviewExample: () => {
@@ -109,7 +109,6 @@ const components: MDXComponents = {
             }
             return child
           })}
-
         </li>
       )
     }

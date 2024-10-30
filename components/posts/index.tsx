@@ -3,6 +3,7 @@ import { getPosts } from '@/lib/mdx'
 
 import Link from 'next/link'
 import React from 'react'
+
 import { Seperator } from '../separator'
 
 interface PostProps {
@@ -11,9 +12,11 @@ interface PostProps {
 }
 
 export const Posts = ({ category, limit }: PostProps) => {
-  const posts = getPosts(category).sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime()
-  }).slice(0, limit)
+  const posts = getPosts(category)
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime()
+    })
+    .slice(0, limit)
 
   if (posts.length === 0) {
     return null
