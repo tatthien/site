@@ -35,7 +35,7 @@ export default function RootLayout({
           <aside className="col-[main] lg:col-[left-sidebar] py-6 lg:py-24">
             <MainNav />
           </aside>
-          <main className="py-16 md:py-24 col-[main]">
+          <main className="py-16 md:py-24 col-[main] min-w-0">
             <article className="article">{children}</article>
           </main>
         </Providers>
