@@ -8,6 +8,7 @@ export const OpenGraph: Metadata = {
   },
   description: 'Sharing my interest in a little of everything that crosses my mind, but mostly in technology.',
   keywords: ['Design', 'Development', 'Engineering'],
+  creator: 'Thien Nguyen',
   openGraph: {
     type: 'website',
     locale: 'en_US',
