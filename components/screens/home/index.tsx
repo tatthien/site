@@ -36,7 +36,7 @@ export default function Home() {
         <Posts category="posts" limit={10} />
       </Card>
       <Card>
-        <h2 className="py-2 text-gray-9 capitalize">Projects</h2>
+        <h2 className="py-2 text-gray-9 capitalize">Side projects</h2>
         <div className="flex flex-col gap-4">
           {projects.map((project) => (
             <div key={project.name}>
