@@ -12,7 +12,7 @@ export type Post = {
     handle?: string
   }
 
-  date: string
+  date: Date
 
   media?: {
     image?: string

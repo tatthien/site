@@ -37,7 +37,7 @@ export function generateMetadata() {
 export default function Page() {
   return (
     <Card>
-      <Posts category={category} />
+      <Posts category={category} group />
     </Card>
   )
 }
