@@ -142,6 +142,7 @@ const config: Config = {
           foreground: 'var(--kbd-foreground)',
           border: 'var(--kbd-border)',
         },
+        primary: '#00449e',
       },
       fontFamily: {
         inter: ['var(--font-inter)'],

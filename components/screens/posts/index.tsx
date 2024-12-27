@@ -1,23 +1,17 @@
 import type { Post } from '@/types'
 
-import { Breadcrumb } from '@/components/breadcrumb'
 import { Card } from '@/components/card'
-import { PostNavigation } from '@/components/post-navigation'
 import { TableOfContents } from '@/components/table-of-contents'
 import { formatter } from '@/lib/formatter'
-import { getPosts } from '@/lib/mdx'
 import { MDX } from '@/mdx-components'
 
 import { readingTime } from 'reading-time-estimator'
 
 interface Props {
   post: Post
-  route: string
 }
 
-export const Layout = ({ post, route }: Props) => {
-  const posts = getPosts(route)
-
+export const Layout = ({ post }: Props) => {
   const Seperator = () => {
     return <div>⋅</div>
   }
@@ -32,7 +26,6 @@ export const Layout = ({ post, route }: Props) => {
 
   return (
     <div className="flex flex-col gap-6">
-      <Breadcrumb post={post} />
       <Card>
         <div className="mb-10 flex flex-col">
           <div>
@@ -46,7 +39,6 @@ export const Layout = ({ post, route }: Props) => {
         </div>
         <MDX source={post.content} />
       </Card>
-      <PostNavigation posts={posts} />
       <TableOfContents />
     </div>
   )

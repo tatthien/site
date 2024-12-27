@@ -11,7 +11,7 @@ const menus = [
   },
   {
     label: 'Writing',
-    href: '/posts',
+    href: '/w',
   },
   {
     label: 'About',

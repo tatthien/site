@@ -1,5 +1,6 @@
 import type { Post } from '@/types'
 
+import { Breadcrumb } from '@/components/breadcrumb'
 import { Layout } from '@/components/screens/posts'
 import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
@@ -7,7 +8,7 @@ import { OpenGraph } from '@/lib/og'
 
 import { notFound } from 'next/navigation'
 
-const route = 'posts'
+const route = 'w'
 
 const Posts = getPosts(route)
 
@@ -67,5 +68,10 @@ export default function Page({ params }: PageProps) {
     notFound()
   }
 
-  return <Layout post={post} route={route} />
+  return (
+    <div className="flex flex-col gap-6">
+      <Breadcrumb post={post} />
+      <Layout post={post} />
+    </div>
+  )
 }

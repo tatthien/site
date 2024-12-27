@@ -30,8 +30,6 @@
     --border: var(--gray-4);
     --scrollbar-thumb: var(--gray-4);
     --scrollbar-track: transparent;
-    --selection-background: var(--pink-3);
-    --selection-foreground: var(--pink-11);
     --kbd-background: var(--gray-3);
     --kbd-foreground: var(--gray-11);
     --kbd-border: var(--gray-4);
@@ -49,11 +47,6 @@
     font-variant-ligatures: common-ligatures;
     text-wrap: pretty;
     text-rendering: optimizelegibility;
-  }
-
-  *::selection {
-    color: var(--selection-foreground);
-    background-color: var(--selection-background);
   }
 
   html {
@@ -85,7 +78,18 @@
     }
 
     a {
-      @apply transition hover:opacity-60;
+      @apply transition hover:underline;
+
+      &[target="_blank"] {
+        position: relative;
+
+        &:after {
+          position: relative;
+          top: -2px;
+          margin-left: 2px;
+          content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' class='i-external' viewBox='0 0 32 32' width='12' height='12' fill='none' stroke='rgba(73,80,87,0.7)' stroke-linecap='round' stroke-linejoin='round' stroke-width='9.38%'><path d='M14 9 L3 9 3 29 23 29 23 18 M18 4 L28 4 28 14 M28 4 L14 18'/></svg>");
+        }
+      }
     }
 
     ol {

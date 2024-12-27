@@ -7,7 +7,6 @@
     "build": "npm run lint && next build",
     "start": "next start",
     "postbuild": "next-sitemap",
-    "mdx:timestamps": "node ./scripts/update-mdx-timestamps",
     "lint:biome": "npx biome check --fix --unsafe .",
     "lint:prettier": "npx prettier . --write --log-level warn",
     "lint": "npm run lint:prettier && npm run lint:biome"
