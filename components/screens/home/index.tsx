@@ -24,7 +24,7 @@ export default function Home() {
     <div className="flex flex-col gap-6">
       <div className="mb-10 flex flex-col items-center gap-8 md:flex-row">
         <ArcCard>
-          <div className='relative grid w-full md:w-[240px] grid-rows-[200px_80px_40px] gap-4 rounded-2xl border border-gray-4 shadow-md bg-[#fff] p-4'>
+          <div className='relative grid w-full md:w-[240px] grid-rows-[200px_60px_40px] gap-4 rounded-2xl border border-gray-4 shadow-md bg-[#fff] p-4'>
             <figure className="flex justify-center rounded-sm">
               <img src="/img/avatar.webp" alt="Avatar" className="w-full h-auto object-cover rounded-sm" />
             </figure>
