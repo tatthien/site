@@ -4,9 +4,6 @@ import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
 
 import Link from 'next/link'
-import React from 'react'
-
-import { Seperator } from '../separator'
 
 interface PostProps {
   /* Post type */
@@ -63,13 +60,12 @@ export const Posts = ({ category, limit, group }: PostProps) => {
 }
 
 const PostList = ({ posts, category }: { posts: Post[]; category: string }) => {
-  return posts.map((post, index) => (
-    <React.Fragment key={post.slug}>
-      <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full flex-wrap justify-between py-2 md:flex-nowrap">
+  return posts.map((post) => (
+    <div key={post.slug} className="flex flex-col justify-between py-1.5">
+      <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full flex-wrap justify-between md:flex-nowrap">
         <p className="w-full flex-grow md:w-auto md:flex-auto">{post.title}</p>
         <p className="mb-0 text-gray-9 slashed-zero tabular-nums">{formatter.date(new Date(post.date))}</p>
       </Link>
-      {index < posts.length - 1 && <Seperator />}
-    </React.Fragment>
+    </div>
   ))
 }

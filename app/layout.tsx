@@ -2,6 +2,7 @@ import '@/styles/main.css'
 
 import type { Metadata } from 'next'
 
+import { Footer } from '@/components/footer'
 import { MainNav } from '@/components/main-nav'
 import { Providers } from '@/components/providers'
 import { OpenGraph } from '@/lib/og'
@@ -37,6 +38,9 @@ export default function RootLayout({
           </aside>
           <main className="col-[main] min-w-0 py-16 md:py-24">
             <article className="article">{children}</article>
+            <div className="my-10">
+              <Footer />
+            </div>
           </main>
         </Providers>
       </body>
