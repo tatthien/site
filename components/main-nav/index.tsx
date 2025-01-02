@@ -17,6 +17,10 @@ const menus = [
     label: 'About',
     href: '/pages/about',
   },
+  {
+    label: 'Resume',
+    href: '/pages/resume',
+  },
 ]
 
 export function MainNav() {
