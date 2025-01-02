@@ -177,16 +177,18 @@ export default function Page() {
       </Section>
 
       <Section title="Projects">
-        {projects.map((project, index) => (
-          <div key={project.name}>
-            <h4 className="font-semibold">
-              <a href={project.link} target="_blank" className="text-primary hover:underline" rel="noreferrer">
-                {project.name}
-              </a>
-            </h4>
-            <p className="mb-0">{project.description}</p>
-          </div>
-        ))}
+        <div className='flex flex-col gap-4'>
+          {projects.map((project, index) => (
+            <div key={project.name}>
+              <h4 className="font-semibold">
+                <a href={project.link} target="_blank" className="text-primary hover:underline" rel="noreferrer">
+                  {project.name}
+                </a>
+              </h4>
+              <p className="mb-0">{project.description}</p>
+            </div>
+          ))}
+        </div>
       </Section>
 
       <Section title="Activities">
