@@ -28,7 +28,7 @@ export async function GET(request: Request) {
     /*
      * Finally we are fetching the font file from the public directory.
      */
-    const inter600 = fetch(new URL('/public/assets/inter/semi-bold.ttf', import.meta.url)).then((res) => res.arrayBuffer())
+    const font600 = fetch(new URL('/public/assets/Barlow-SemiBold.ttf', import.meta.url)).then((res) => res.arrayBuffer())
 
     return new ImageResponse(
       <div
@@ -42,35 +42,68 @@ export async function GET(request: Request) {
           /* style */
           fontSize: '24px',
           letterSpacing: '-0.47px',
-          background: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
+          background: '#fff',
         }}
       >
         <div
           style={{
             display: 'flex',
-            flex: '1',
-            padding: '16px',
+            alignItems: 'center',
+            gap: '10px',
+            color: '#BCBEC0',
+            padding: '40px 40px',
+            fontSize: '32px',
           }}
         >
           <div
             style={{
               display: 'flex',
-              alignItems: 'center',
+              width: '24px',
+              height: '24px',
+              borderRadius: '24px',
+              background: '#BCBEC0',
+            }}
+          />
+          THIEN.DEV
+        </div>
+
+        <div
+          style={{
+            display: 'flex',
+            flex: '1',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
               flex: '1',
               gap: 12,
-              padding: '60px',
               background: '#fff',
+              padding: '40px 40px',
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column' }}>
+              {date && (
+                <div
+                  style={{
+                    color: '#00794c',
+                    fontSize: '40px',
+                    marginBottom: '16px',
+                  }}
+                >
+                  {date}
+                </div>
+              )}
               {title ? (
                 <div
                   style={{
                     color: '#000',
-                    fontSize: '80px',
-                    lineHeight: '86px',
+                    fontSize: '82px',
+                    lineHeight: '92px',
                     fontWeight: 600,
                     marginBottom: '16px',
+                    textTransform: 'uppercase',
                   }}
                 >
                   {title}
@@ -80,30 +113,8 @@ export async function GET(request: Request) {
                   <path d="M37.59.25l36.95 64H.64l36.95-64z" />
                 </svg>
               )}
-              {date && <div style={{ color: 'rgba(0, 0, 0, 0.4)' }}>{date}</div>}
             </div>
           </div>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            padding: '8px 40px 20px 40px',
-            background: 'linear-gradient(to right, #40e0d0, #ff8c00, #ff0080)',
-            color: '#fff',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              width: '24px',
-              height: '24px',
-              borderRadius: '24px',
-              background: '#fff',
-            }}
-          />
-          thien.dev
         </div>
       </div>,
       {
@@ -112,7 +123,7 @@ export async function GET(request: Request) {
         fonts: [
           {
             name: 'Inter',
-            data: await inter600,
+            data: await font600,
             weight: 600,
           },
         ],
