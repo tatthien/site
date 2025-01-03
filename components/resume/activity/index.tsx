@@ -35,7 +35,9 @@ export function Activity({
       <div>
         <ul className="mb-0 list-none">
           {responsibilities.map((responsibility) => (
-            <li key={responsibility}>- {responsibility}</li>
+            <li key={responsibility} className="list-none">
+              - {responsibility}
+            </li>
           ))}
         </ul>
       </div>

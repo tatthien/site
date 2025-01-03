@@ -79,9 +79,9 @@ const components: MDXComponents = {
         </ol>
       )
     }
-    return <ol className={cn('mt-2 ml-2 list-decimal', className)} {...props} />
+    return <ol className={cn('mb-2 ml-4 list-decimal', className)} {...props} />
   },
-  ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => <ul className={cn('mt-2 ml-2 list-disc', className)} {...props} />,
+  ul: ({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) => <ul className={cn('mb-6 ml-4', className)} {...props} />,
   li: ({ className, children, ...props }: React.HTMLAttributes<HTMLLIElement>) => {
     if (props.id?.includes('user-content-fn-')) {
       return (
@@ -112,7 +112,7 @@ const components: MDXComponents = {
         </li>
       )
     }
-    return <li className={cn('mt-2 ml-2 list-item', className)}>{children}</li>
+    return <li className={cn('mb-2 pl-2', className)}>{children}</li>
   },
   img: ({ alt, src }) => {
     return (

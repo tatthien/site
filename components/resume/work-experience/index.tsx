@@ -36,7 +36,9 @@ export function WorkExperience({
         <div>Main responsibilities:</div>
         <ul className="mb-0 list-none">
           {responsibilities.map((responsibility, index) => (
-            <li key={responsibility}>- {responsibility}</li>
+            <li key={responsibility} className="list-none">
+              - {responsibility}
+            </li>
           ))}
         </ul>
       </div>

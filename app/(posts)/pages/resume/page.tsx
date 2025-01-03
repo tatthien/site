@@ -151,10 +151,10 @@ export default function Page() {
         <div className="flex flex-col justify-between md:flex-row">
           <div>Technical</div>
           <ul className="list-none">
-            <li>- JavaScript/TypeScript, Golang</li>
-            <li>- React, Next.js, Node.js, WordPress, TailwindCSS, SCSS</li>
-            <li>- MySQL, PostgreSQL, MongoDB</li>
-            <li>- AWS services, Docker, K8S, CI/CD (GitLab, GitHub, BitBucket)</li>
+            <li className="list-none">- JavaScript/TypeScript, Golang</li>
+            <li className="list-none">- React, Next.js, Node.js, WordPress, TailwindCSS, SCSS</li>
+            <li className="list-none">- MySQL, PostgreSQL, MongoDB</li>
+            <li className="list-none">- AWS services, Docker, K8S, CI/CD (GitLab, GitHub, BitBucket)</li>
           </ul>
         </div>
       </Section>
@@ -177,7 +177,7 @@ export default function Page() {
       </Section>
 
       <Section title="Projects">
-        <div className='flex flex-col gap-4'>
+        <div className="flex flex-col gap-4">
           {projects.map((project, index) => (
             <div key={project.name}>
               <h4 className="font-semibold">
