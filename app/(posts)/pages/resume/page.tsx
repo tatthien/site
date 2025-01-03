@@ -203,7 +203,7 @@ export default function Page() {
               end={workExperience.end}
               responsibilities={workExperience.responsibilities}
             />
-            {index < workExperiences.length - 1 && <div className="my-4 h-[1px] bg-gray-4" />}
+            {index < activities.length - 1 && <div className="my-4 h-[1px] bg-gray-4" />}
           </>
         ))}
       </Section>

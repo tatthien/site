@@ -47,7 +47,7 @@ const components: MDXComponents = {
       return <FootnoteForwardReference href={href}>{children}</FootnoteForwardReference>
     }
     return (
-      <Link href={href} className="inline-flex items-center gap-1 text-primary hover:underline">
+      <Link href={href} className="text-primary hover:underline">
         {children}
       </Link>
     )

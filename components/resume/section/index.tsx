@@ -29,8 +29,8 @@ export function Section({
             setOpen(!open)
           }}
         >
-          <h3 className="font-semibold text-lg">{title}</h3>
-          <div className="text-xl">{open ? '−' : '+'}</div>
+          <span className="font-semibold text-lg">{title}</span>
+          <span className="text-xl">{open ? '−' : '+'}</span>
         </button>
         <div className="h-[1px] bg-gray-12" />
       </div>
