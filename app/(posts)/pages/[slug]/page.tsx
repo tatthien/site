@@ -23,6 +23,11 @@ export async function generateStaticParams() {
 
 export function generateMetadata({ params }: PageProps) {
   const post = Posts.find((post: { slug: string }) => post.slug === params.slug)
+
+  if (!post) {
+    notFound()
+  }
+
   const title = post ? post.title : ''
   const date = post ? post.date : ''
   const image = `/api/og?title=${encodeURIComponent(title)}&date=${encodeURIComponent(formatter.date(new Date(date)))}`
