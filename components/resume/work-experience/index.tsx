@@ -34,10 +34,10 @@ export function WorkExperience({
       </div>
       <div>
         <div>Main responsibilities:</div>
-        <ul className="mb-0 list-none">
-          {responsibilities.map((responsibility, index) => (
-            <li key={responsibility} className="list-none">
-              - {responsibility}
+        <ul className="mb-0 ml-2">
+          {responsibilities.map((responsibility) => (
+            <li key={responsibility} className="pl-1" style={{ listStyleType: `"-"` }}>
+              {responsibility}
             </li>
           ))}
         </ul>

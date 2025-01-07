@@ -33,10 +33,10 @@ export function Activity({
         </div>
       </div>
       <div>
-        <ul className="mb-0 list-none">
+        <ul className="mb-0 ml-2">
           {responsibilities.map((responsibility) => (
-            <li key={responsibility} className="list-none">
-              - {responsibility}
+            <li key={responsibility} className="pl-1" style={{ listStyleType: `"-"` }}>
+              {responsibility}
             </li>
           ))}
         </ul>

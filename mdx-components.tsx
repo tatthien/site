@@ -37,7 +37,7 @@ const components: MDXComponents = {
       return null
     }
     return (
-      <h2 id={id} className="text-xl">
+      <h2 id={id} className="text-xl mt-10 mb-4">
         {children}
       </h2>
     )

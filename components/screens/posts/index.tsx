@@ -1,7 +1,6 @@
 import type { Post } from '@/types'
 
 import { Card } from '@/components/card'
-import { TableOfContents } from '@/components/table-of-contents'
 import { formatter } from '@/lib/formatter'
 import { MDX } from '@/mdx-components'
 
@@ -27,7 +26,6 @@ export const Layout = ({ post }: Props) => {
         </div>
         <MDX source={post.content} />
       </Card>
-      <TableOfContents />
     </div>
   )
 }

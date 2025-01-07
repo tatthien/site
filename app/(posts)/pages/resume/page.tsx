@@ -232,17 +232,14 @@ function Header() {
       <h2 className="font-semibold text-lg">Thien Nguyen</h2>
       <div>Ho Chi Minh city, Vietnam</div>
       <div className="flex flex-col md:flex-row md:gap-4">
-        <div>+84 033 9646 120</div>
-        <div>
-          <a href="mailto:me@thien.dev" className="text-primary hover:underline">
-            me@thien.dev
-          </a>
-        </div>
-        <div>
-          <a href="https://thien.dev" target="_blank" className="text-primary hover:underline" rel="noreferrer">
-            thien.dev
-          </a>
-        </div>
+        <span>+84 033 9646 120</span>
+        <a href="mailto:me@thien.dev" className="text-primary hover:underline">
+          me@thien.dev
+        </a>
+        <a href="https://thien.dev" target="_blank" className="text-primary hover:underline" rel="noreferrer">
+          thien.dev
+        </a>
+        <a href="https://thien.dev/resume.pdf" target='_blank' rel='noreferrer' className='text-gray-8 hover:underline'>(Download PDF)</a>
       </div>
     </header>
   )
