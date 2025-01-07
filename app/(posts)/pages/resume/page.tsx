@@ -42,6 +42,8 @@ const workExperiences = [
     end: 'Present',
     responsibilities: [
       'Led front-end and mobile development using React & React Native',
+      'Built admin dashboard in both front-end (Next.js) and back-end (Nest.js) to help administrators manage all the resources related to the platform',
+      'Worked with AWS Cognito, Lambda, API Gateway, DinamoDB, Route53, Fargate',
       'Participated in product development from the initial stages',
       'Provided technical guidance and mentorship to team members',
     ],
