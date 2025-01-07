@@ -239,7 +239,9 @@ function Header() {
         <a href="https://thien.dev" target="_blank" className="text-primary hover:underline" rel="noreferrer">
           thien.dev
         </a>
-        <a href="https://thien.dev/resume.pdf" target='_blank' rel='noreferrer' className='text-gray-8 hover:underline'>(Download PDF)</a>
+        <a href="https://thien.dev/resume.pdf" target="_blank" rel="noreferrer" className="text-gray-8 hover:underline">
+          (Download PDF)
+        </a>
       </div>
     </header>
   )
