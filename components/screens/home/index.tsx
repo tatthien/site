@@ -21,9 +21,9 @@ const projects = [
 export default function Home() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col items-center gap-8 md:flex-row">
+      <div className="flex flex-col gap-8 md:flex-row md:items-center">
         <ArcCard>
-          <div className="relative grid w-full grid-rows-[200px_60px_40px] gap-4 border border-gray-5 bg-[#fff] p-4 md:w-[240px]">
+          <div className="relative grid w-full grid-rows-[320px_60px_40px] gap-4 border border-gray-5 bg-[#fff] p-4 md:w-[240px] md:grid-rows-[200px_60px_40px]">
             <figure className="flex justify-center rounded-sm">
               <img src="/img/avatar.webp" alt="Avatar" className="h-auto w-full object-cover" />
             </figure>
@@ -47,16 +47,16 @@ export default function Home() {
             but mostly about technology.
           </p>
           <p className="mb-4">Connect with me on:</p>
-          <nav className="flex gap-6">
-            <a href="https://github.com/tatthien" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-9">
+          <nav className="flex flex-col flex-wrap gap-2 md:flex-row md:gap-6">
+            <a href="https://github.com/tatthien" target="_blank" rel="noreferrer" className="flex flex-1 items-center gap-2 text-gray-9">
               <Github width={18} />
               GitHub
             </a>
-            <a href="https://x.com/hey_thien" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-9">
+            <a href="https://x.com/hey_thien" target="_blank" rel="noreferrer" className="flex flex-1 items-center gap-2 text-gray-9">
               <Twitter width={18} />
               Twitter
             </a>
-            <a href="https://www.linkedin.com/in/tatthien/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-9">
+            <a href="https://www.linkedin.com/in/tatthien/" target="_blank" rel="noreferrer" className="flex flex-1 shrink-0 items-center gap-2 text-gray-9">
               <Linkedin width={18} />
               LinkedIn
             </a>
