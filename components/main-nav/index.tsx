@@ -25,7 +25,7 @@ const menus = [
 
 export function MainNav() {
   return (
-    <ul className="flex flex-col gap-1">
+    <ul className="flex justify-center gap-6 md:flex-col md:gap-1">
       {menus.map(({ label, href }) => (
         <li key={href} className="relative list-none text-sm">
           <NavLink label={label} href={href} />
@@ -43,7 +43,7 @@ const NavLink = ({ label, href }: { label: string; href: string }) => {
 
   return (
     <Link href={href} prefetch={true}>
-      {active && <span className="absolute left-[-20px]">►</span>}
+      {active && <span className="-translate-x-1/2 -rotate-90 absolute top-4 left-1/2 md:top-auto md:left-[-20px] md:translate-x-0 md:rotate-0">►</span>}
       {label}
     </Link>
   )
