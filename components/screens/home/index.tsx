@@ -1,6 +1,8 @@
 import { ArcCard } from '@/components/arc-card'
 import { Card } from '@/components/card'
+import { HeatMapPosts } from '@/components/heat-map-posts'
 import { Posts } from '@/components/posts'
+import { getPosts } from '@/lib/mdx'
 
 import { Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
@@ -18,7 +20,11 @@ const projects = [
   },
 ]
 
+const posts = getPosts('w')
+
 export default function Home() {
+  const year = new Date().getFullYear()
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-8 md:flex-row md:items-center">
@@ -79,6 +85,10 @@ export default function Home() {
             </a>
           ))}
         </div>
+      </Card>
+      <Card>
+        <h2 className="py-2 text-gray-9">{`${posts.filter((post) => post.date.getFullYear() === new Date().getFullYear()).length} posts in ${year}`}</h2>
+        <HeatMapPosts year={year} posts={posts} />
       </Card>
       <Card>
         <Link href="/w" prefetch={true} className="flex justify-between">
