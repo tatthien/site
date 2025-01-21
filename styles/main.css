@@ -99,6 +99,7 @@
     }
 
     button {
+
       &:focus,
       &:active {
         outline: none;
@@ -137,17 +138,17 @@
   }
 
   article {
-    h1 + h2 {
+    h1+h2 {
       margin-top: 4px !important;
     }
 
-    h1 + p,
-    h2 + p {
+    h1+p,
+    h2+p {
       margin-top: 8px !important;
     }
 
-    figure + h1,
-    p + h1 {
+    figure+h1,
+    p+h1 {
       margin-top: 48px !important;
     }
 
@@ -173,6 +174,10 @@
     ul {
       li {
         list-style-type: "✦";
+
+        ul li {
+          list-style-type: "-";
+        }
       }
     }
 
@@ -277,6 +282,7 @@
   */
 
   html {
+
     code[data-theme*=" "],
     code[data-theme*=" "] span {
       color: var(--shiki-light);
@@ -284,6 +290,7 @@
     }
 
     &.dark {
+
       code[data-theme*=" "],
       code[data-theme*=" "] span {
         color: var(--shiki-dark);
@@ -302,7 +309,7 @@
       counter-reset: line;
     }
 
-    code[data-line-numbers] > [data-line]::before {
+    code[data-line-numbers]>[data-line]::before {
       display: inline-block;
       width: 12px;
       margin-right: 2rem;
@@ -312,19 +319,19 @@
       counter-increment: line;
     }
 
-    code[data-line-numbers-max-digits="2"] > [data-line]::before {
+    code[data-line-numbers-max-digits="2"]>[data-line]::before {
       width: 1.25rem;
     }
 
-    code[data-line-numbers-max-digits="3"] > [data-line]::before {
+    code[data-line-numbers-max-digits="3"]>[data-line]::before {
       width: 1.75rem;
     }
 
-    code[data-line-numbers-max-digits="4"] > [data-line]::before {
+    code[data-line-numbers-max-digits="4"]>[data-line]::before {
       width: 2.25rem;
     }
 
-    p [data-line] {
+    :is(p, li) [data-line] {
       padding: 2px 4px;
       margin-right: 2px;
       margin-left: 2px;

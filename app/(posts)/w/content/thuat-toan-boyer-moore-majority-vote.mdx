@@ -1,0 +1,89 @@
+---
+title: Thuật toán Boyer-Moore majority vote
+date: 2025-01-21T14:02:11.239Z
+description: Thuật toán tìm phần tử xuất hiện nhiều nhất trong mảng
+tags: recap
+---
+
+![Boyer-Moore](/img/boyer-moore.svg)
+
+Mấy ngày trở lại đây mình dành thời gian để giải các problem trên [Leetcode](https://leetcode.com/u/heythien/). Mình tham gia chủ yếu để nắm vững hơn về thuật toán, cũng như nâng cao khả năng tư duy trong lập trình.
+
+Hôm nay gặp bài [Majority Element](https://leetcode.com/problems/majority-element/description). Ban đầu mình tự suy nghĩ phương cách nhưng sau khi tìm hiểu solution thì phát hiện ra thuật toán [Boyer-Moore majority vote](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm).
+
+## Mô tả vấn đề
+
+Bạn được cung cấp một mảng gồm `n` phần tử kiểu `number`. Việc cần làm là tìm ra phần tử xuất hiện nhiều hơn `n/2` lần. Giả định rằng mảng được cung cấp luôn luôn có phần tử đa số xuất hiện.
+
+**Ví dụ:**
+
+```
+Input: [2,4,1,1,1]
+Output: 1
+```
+
+## Cách 1 - cách mình làm
+
+Tuy cách làm này vẫn trả ra kết quả đúng, nhưng performance tệ và raking quá thấp 😂
+
+<Image src="/img/boyer-moore-fg-1.webp" alt="Boyer-Moore majority vote Figure 1" caption="Thời gian chạy chỉ beat 12.66%. Con số này nên là >50%"/>
+
+- Đầu tiên mình sẽ sort các phần tử trong mảng để chúng theo một thứ tự, có thể thấp tới cao hoặc ngược lại. Miễn là được sort.
+- Init giá trị `count = 1`, và duyệt hết mảng, nếu hai phần tử nằm cạnh nhau mà giống nhau thì sẽ tăng `count` lên `1`. Nếu không thì sẽ reset `count = 1`
+- Sau mỗi lần tăng `count` thì mình sẽ kiểm tra `count > n / 2` không.
+
+
+```ts
+function majorityElement(nums: number[]): number {
+  const sortedNums = nums.sort((a, b) => a - b)
+  let count = 1
+  let candidate: number
+
+  for (let i = 0; i < sortedNums.length; i++) {
+    if (sortedNums[i] === sortedNums[i - 1]) {
+      count++
+      if (count > nums.length / 2) {
+        candidate = sortedNums[i]
+      }
+    } else {
+      count = 1
+    }
+  }
+
+  return candidate
+};
+```
+
+## Cách 2 - áp dụng thuật toán Boyer-Moore majority vote
+
+Cũng nhờ làm bài này mà mình mới biết thuật toán [Boyer-Moore majority vote](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm). 
+
+> Thuật toán này dùng để tìm phần tử đa số (xuất hiện nhiều lần nhất) trong một chuỗi (mảng) các phần tử sử dụng thời gian tuyến tính. Thuật toán được đặt tên dựa theo hai tác giả Robert S. **Boyer** và J Strother **Moore** là hai người đã giới thiệu thuật toán năm 1981. - Theo Wiki
+
+Tóm tắt thuật toán này dưới dạng pseudocode như sau:
+
+- Khởi tạo một phần tử `m` và một biến đếm `c` với `c = 0`
+- Với mỗi phần tử `x` trong mảng:
+  - Nếu `c = 0`, gán `m = x`
+  - Thay đổi giá trị của `c` với `c = c + 1` nếu `m = x`
+  - Ngược lại, `c = c - 1`
+- Trả về `m`
+
+```ts
+function majorityElement(nums: number[]): number {
+  let candidate
+  let count = 0
+  for (const num of nums) {
+    if (count === 0) {
+        candidate = num
+    }
+    count += (num === candidate) ? 1 : -1
+  }
+  
+  return candidate
+}
+```
+
+<Image src="/img/boyer-moore-fg-2.webp" alt="Boyer-Moore majority vote Figure 2" caption="Mình đã submit lại và kết quả 74.03%"/>
+
+Happy coding!
