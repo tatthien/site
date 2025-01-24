@@ -9,6 +9,7 @@ import { OpenGraph } from '@/lib/og'
 
 import clsx from 'clsx'
 import { Inter } from 'next/font/google'
+import { ProgressBar } from '@/components/progress-bar'
 
 export const metadata: Metadata = {
   ...OpenGraph,
@@ -33,6 +34,7 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>
+          <ProgressBar />
           <aside className="col-[main] py-6 lg:col-[left-sidebar] lg:py-24">
             <MainNav />
           </aside>
