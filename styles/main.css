@@ -246,8 +246,10 @@
 
     figure[data-mdx-image] {
       display: grid;
+      grid-template-columns: [main] 100%;
 
       @media all and (min-width: 1024px) {
+        display: grid;
         grid-template-columns: [main] 700px [right-sidebar] 160px [right-edge];
       }
     }
