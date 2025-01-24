@@ -29,28 +29,21 @@ export default function Home() {
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-8 md:flex-row md:items-center">
         <ArcCard>
-          <div className="relative grid w-full grid-rows-[320px_60px_40px] gap-4 border border-gray-5 bg-[#fff] p-4 md:w-[240px] md:grid-rows-[200px_60px_40px]">
+          <div className="relative grid w-full grid-rows-[340px_60px] gap-4 rounded border border-gray-5 bg-[#fff] p-4 md:w-[240px] md:grid-rows-[220px_60px]">
             <figure className="flex justify-center rounded-sm">
-              <img src="/img/avatar.webp" alt="Avatar" className="h-auto w-full object-cover" />
+              <img src="/img/avatar.webp" alt="Avatar" className="h-auto w-full rounded-sm object-cover" />
             </figure>
             <div>
               <p className="font-bold text-2xl">Daniel Nguyen</p>
-              <p className="text-lg">Software Engineer</p>
+              <p>Software Engineer</p>
             </div>
-            <footer className="flex items-end">
-              <p className="flex border border-current px-1 py-1 text-[9px] uppercase">
-                thien.dev{' '}
-                <span className="-my-1 mx-1 inline-block w-6 border-current border-r border-l bg-[repeating-linear-gradient(-45deg,currentColor,currentColor_1px,transparent_1px,transparent_2px)]" />{' '}
-                {new Date().getFullYear()}
-              </p>
-            </footer>
           </div>
         </ArcCard>
         <div>
           <p className="mb-4">
             Hello, I'm <strong>Daniel Nguyen</strong>, a Software Engineer specializing in JavaScript, including its ecosystem like React, Next.js, and Node.js.
-            I also work with Go on occasion. This is my little corner of the internet where I share my interest in a little of everything that crosses my mind,
-            but mostly about technology.
+            I also work with Go on occasion. This is my digital garden where I share my interest in a little of everything that crosses my mind, but mostly
+            about technology.
           </p>
           <p className="mb-4">Connect with me on:</p>
           <nav className="flex flex-col flex-wrap gap-2 md:flex-row md:gap-6">

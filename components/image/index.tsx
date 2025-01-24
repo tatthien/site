@@ -74,13 +74,14 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
 
   return (
     <div className="mt-2 mb-6">
-      <figure data-mdx-image>
+      <figure data-mdx-image className="-mx-5">
         <Image
           ref={imageRef}
           alt={alt}
           width={1000}
           height={1000}
           sizes="100vw"
+          className="col-[main]"
           style={{
             objectFit: 'contain',
             width: '100%',
@@ -93,7 +94,7 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
           onClick={handleZoom}
           {...props}
         />
-        {caption && <figcaption>{caption}</figcaption>}
+        {caption && <figcaption className="px-2 pt-2 text-center text-gray-9 text-sm md:px-0 md:pt-0 md:pl-5 md:text-left">{caption}</figcaption>}
       </figure>
       <div
         aria-hidden="true"
