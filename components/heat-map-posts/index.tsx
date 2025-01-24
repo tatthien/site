@@ -102,7 +102,10 @@ export function HeatMapPosts({ year, posts }: HeatMapPostsProps) {
                   <td
                     key={date.date.toString()}
                     title={d.date.toString()}
-                    className={cn('h-[9px] w-[9px] rounded-[2px] text-[10px]', d.date.getFullYear() === year && 'outline outline-1 outline-[#1b1f230f] -outline-offset-1')}
+                    className={cn(
+                      'h-[9px] w-[9px] rounded-[2px] text-[10px]',
+                      d.date.getFullYear() === year && '-outline-offset-1 outline outline-1 outline-[#1b1f230f]',
+                    )}
                     style={{
                       backgroundColor: d.date.getFullYear() === year ? backgrounds[d.count > backgrounds.length ? backgrounds.length : d.count] : 'transparent',
                     }}

@@ -43,7 +43,7 @@ const NavLink = ({ label, href }: { label: string; href: string }) => {
 
   return (
     <Link href={href} prefetch={true}>
-      {active && <span className="absolute top-4 left-1/2 -translate-x-1/2 md:top-auto md:left-[-20px] md:translate-x-0 text-primary">✦</span>}
+      {active && <span className="-translate-x-1/2 absolute top-4 left-1/2 text-primary md:top-auto md:left-[-20px] md:translate-x-0">✦</span>}
       {label}
     </Link>
   )
