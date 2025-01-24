@@ -4,12 +4,12 @@ import type { Metadata } from 'next'
 
 import { Footer } from '@/components/footer'
 import { MainNav } from '@/components/main-nav'
+import { ProgressBar } from '@/components/progress-bar'
 import { Providers } from '@/components/providers'
 import { OpenGraph } from '@/lib/og'
 
 import clsx from 'clsx'
 import { Inter } from 'next/font/google'
-import { ProgressBar } from '@/components/progress-bar'
 
 export const metadata: Metadata = {
   ...OpenGraph,
