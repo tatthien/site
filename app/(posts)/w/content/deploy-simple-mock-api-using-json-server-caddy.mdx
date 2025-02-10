@@ -1,0 +1,109 @@
+---
+title: "Deploy mock API với json-server và Caddy"
+date: 2025-02-09T07:14:11.239Z
+description: Vừa qua mình có làm một project interview xây dụng một single page hiển thị danh sách sản phẩm, có các tính năng như load more, search và filter. Về phía front-end thì đơn giản với stack là React/Next.js. 
+tags: typescript, nodejs, caddy, docker, json-server
+---
+
+Vừa qua mình có làm một project interview xây dụng một single page hiển thị danh sách sản phẩm, có các tính năng như load more, search và filter. Về phía front-end thì đơn giản với stack là React/Next.js. 
+
+Tuy nhiên khi deploy phần front-end lên Vercel, mình cần phải có một nơi để deploy mock API cho front-end kết nối tới. Bên phía nhà tuyển dụng đã gởi cho mình một Node.js project nhỏ đển handle phần mock API này sử dụng `json-server`. Khi làm việc ở local thì mình chỉ đơn giản start con node này lên là xong. Tuy nhiên khi deploy, mình phải suy nghĩ cách nào để front-end có thể connect tới mock API này.
+
+> Nếu bạn chưa biết `json-server` là gì? `json-server` giúp bạn tạo một mock REST API từ file `json` một cách cực kỳ nhanh chóng. Tìm hiểu thêm tại repo GitHub: [https://github.com/typicode/json-server](https://github.com/typicode/json-server)
+
+
+Sau khi suy nghĩ một lúc thì mình nhớ ra mình đang có một con Lightsail instance, vì vậy mình quyết định sẻ deploy lên đây. Các bước mình đã làm như sau:
+
+- Sử dụng `docker` và `docker-compose` để dựng một container chạy `Node.js`.
+- Upload file `db.json` lên
+- Dùng Caddy để reverse proxy, mục đích để có thể point domain vào đúng con Node đang chạy `json-server`.
+
+<Image src='/img/caddy-json-server-diagram.webp' alt='Diagram showing how to connect to mock API using Caddy' />
+
+Đầu tiên, mình sẽ dựng một container để chạy Caddy. Sử dụng `docker-compose` với phần config như bên dưới.
+
+
+```yml
+
+version: "3.7"
+networks:
+  terminal: {}
+services:
+  caddy:
+    container_name: terminal-caddy
+    image: caddy:2-alpine
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - terminal
+    volumes:
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+    restart: unless-stopped
+    healthcheck:
+      test: pidof mysqld || exit 1
+      interval: 120s
+      timeout: 10s
+      retries: 3
+```
+
+Lưu ý tên phần network. Cả hai container `caddy` và `node` đề phải chung một network thì mới có thể giao tiếp với nhau. Trong trường hợp của mình thì mình đặt tên là `terminal`, tên này là tùy ý.
+
+Tiếp theo, mình sẽ dựng một container chạy Node.js. Với default command là `npx json-server db.json --port 5005`, điều này có nghĩa khi container start nó sẽ chạy lệnh default này. Trong trường hợp này, con node của mình sẽ start mock API server.
+
+```yml
+node:
+  container_name: terminal-node
+  image: node:20
+  restart: always
+  working_dir: /home/node/app
+  volumes:
+    - ./json-server:/home/node/app
+  ports:
+    - 3333:5005
+  networks:
+    - terminal
+  command: "npx json-server db.json --port 5005"
+
+```
+
+Bây giờ, thử access vào trong container `node` xem setup thành công chưa? Mình sẽ dùng `docker exec` để access vào trong container.
+
+```bash
+docker exec -it terminal-node sh
+```
+
+Để xem thử `json-server` chạy chưa có thể dùng `docker logs`:
+
+```bash
+docker logs -f terminal-node
+```
+
+Ouput sẽ như sau:
+
+```markdown
+Watching db.json...
+
+(˶ᵔ ᵕ ᵔ˶)
+
+Index:
+http://localhost:5005/
+
+Static files:
+Serving ./public directory if it exists
+
+Endpoints:
+http://localhost:5005/products
+```
+
+Tới bước này, chúng ta đã có thể sử dụng mock API nhưng chỉ hoạt động bên trong môi trường Docker. Vì vậy một việc cuối cùng cần làm đó là setup [reverse proxy](https://caddyserver.com/docs/quick-starts/reverse-proxy) để bên ngoài có thể truy cập vào `node:5005`. Bên dưới là cấu hình `Caddyfile` của mình:
+
+```
+your-site.com {
+  reverse_proxy node:5005
+}
+```
+
+Lưu ý vì dùng `localhost:5005` thì chúng ta phải lấy tên của container được setup trong `docker-compose`, trong trường hợp này mình đặt tên là `node`. Như vậy, mỗi khi mình truy cập vào `your-site.com`, thì Caddy sẽ điều hướng tới tới mock API đang chạy.
