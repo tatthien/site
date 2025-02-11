@@ -229,7 +229,7 @@ export default function Page() {
 function Header() {
   return (
     <header>
-      <h2 className="font-semibold text-lg">Thien Nguyen</h2>
+      <h2 className="font-semibold text-lg">Thien Nguyen (aka. Daniel)</h2>
       <div>Ho Chi Minh city, Vietnam</div>
       <div className="flex flex-col md:flex-row md:gap-4">
         <span>+84 033 9646 120</span>

@@ -1,7 +1,6 @@
 import { ArcCard } from '@/components/arc-card'
 import { Card } from '@/components/card'
 import { Posts } from '@/components/posts'
-import { getPosts } from '@/lib/mdx'
 
 import { Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
