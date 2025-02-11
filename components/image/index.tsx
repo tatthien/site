@@ -84,7 +84,7 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
           className="col-[main]"
           style={{
             objectFit: 'contain',
-            width: '100%',
+            width: 'calc(100% - 2px)',
             height: 'auto',
             objectPosition: 'center',
             transition: 'all 0.3s ease-in-out',
