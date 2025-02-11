@@ -1,6 +1,5 @@
 import { ArcCard } from '@/components/arc-card'
 import { Card } from '@/components/card'
-import { HeatMapPosts } from '@/components/heat-map-posts'
 import { Posts } from '@/components/posts'
 import { getPosts } from '@/lib/mdx'
 
@@ -20,11 +19,7 @@ const projects = [
   },
 ]
 
-const posts = getPosts('w')
-
 export default function Home() {
-  const year = new Date().getFullYear()
-
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-8 md:flex-row md:items-center">
@@ -46,7 +41,7 @@ export default function Home() {
             about technology.
           </p>
           <p className="mb-4">Connect with me on:</p>
-          <nav className="flex flex-col flex-wrap gap-2 md:flex-row md:gap-6">
+          <nav className="flex flex-col flex-wrap gap-1 md:flex-row">
             <a href="https://github.com/tatthien" target="_blank" rel="noreferrer" className="flex flex-1 items-center gap-2 text-gray-9">
               <Github width={18} />
               GitHub
@@ -78,10 +73,6 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </Card>
-      <Card>
-        <h2 className="py-2 text-gray-9">{`${posts.filter((post) => post.date.getFullYear() === new Date().getFullYear()).length} posts in ${year}`}</h2>
-        <HeatMapPosts year={year} posts={posts} />
       </Card>
       <Card>
         <Link href="/w" prefetch={true} className="flex justify-between">
