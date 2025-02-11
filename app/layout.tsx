@@ -9,15 +9,16 @@ import { Providers } from '@/components/providers'
 import { OpenGraph } from '@/lib/og'
 
 import clsx from 'clsx'
-import { Inter } from 'next/font/google'
+import { Work_Sans } from 'next/font/google'
 
 export const metadata: Metadata = {
   ...OpenGraph,
 }
 
-const inter = Inter({
+const workSans = Work_Sans({
   subsets: ['latin'],
   display: 'swap',
+  weight: ['400', '500', '600', '700'],
 })
 
 export default function RootLayout({
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={clsx(inter.className)} suppressHydrationWarning>
+    <html lang="en" className={clsx(workSans.className)} suppressHydrationWarning>
       <head>
         <link rel="icon" href="https://fav.farm/🍱" />
         <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
