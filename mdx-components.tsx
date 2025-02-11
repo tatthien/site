@@ -156,11 +156,11 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
               rehypePrettyCode,
               {
                 theme: {
-                  dark: 'github-dark',
-                  light: 'github-light',
+                  dark: 'min-dark',
+                  light: 'min-light',
                 },
                 keepBackground: false,
-                defaultLang: 'tsx',
+                defaultLang: 'plain',
               },
             ],
           ] as PluggableList,

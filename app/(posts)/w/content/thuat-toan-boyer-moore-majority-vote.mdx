@@ -33,7 +33,7 @@ Tuy cách làm này vẫn trả ra kết quả đúng, nhưng performance tệ v
 - Sau mỗi lần tăng `count` thì mình sẽ kiểm tra `count > n / 2` không.
 
 
-```ts
+```ts showLineNumbers
 function majorityElement(nums: number[]): number {
   const sortedNums = nums.sort((a, b) => a - b)
   let count = 1
@@ -69,7 +69,7 @@ Tóm tắt thuật toán này dưới dạng pseudocode như sau:
   - Ngược lại, `c = c - 1`
 - Trả về `m`
 
-```ts
+```ts showLineNumbers
 function majorityElement(nums: number[]): number {
   let candidate
   let count = 0

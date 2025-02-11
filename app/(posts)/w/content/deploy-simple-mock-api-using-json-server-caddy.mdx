@@ -23,8 +23,7 @@ Sau khi suy nghĩ một lúc thì mình nhớ ra mình đang có một con Light
 Đầu tiên, mình sẽ dựng một container để chạy Caddy. Sử dụng `docker-compose` với phần config như bên dưới.
 
 
-```yml
-
+```yml showLineNumbers
 version: "3.7"
 networks:
   terminal: {}
@@ -53,7 +52,7 @@ Lưu ý tên phần network. Cả hai container `caddy` và `node` đề phải 
 
 Tiếp theo, mình sẽ dựng một container chạy Node.js. Với default command là `npx json-server db.json --port 5005`, điều này có nghĩa khi container start nó sẽ chạy lệnh default này. Trong trường hợp này, con node của mình sẽ start mock API server.
 
-```yml
+```yml showLineNumbers
 node:
   container_name: terminal-node
   image: node:20
@@ -100,7 +99,7 @@ http://localhost:5005/products
 
 Tới bước này, chúng ta đã có thể sử dụng mock API nhưng chỉ hoạt động bên trong môi trường Docker. Vì vậy một việc cuối cùng cần làm đó là setup [reverse proxy](https://caddyserver.com/docs/quick-starts/reverse-proxy) để bên ngoài có thể truy cập vào `node:5005`. Bên dưới là cấu hình `Caddyfile` của mình:
 
-```
+```caddyfile showLineNumbers
 your-site.com {
   reverse_proxy node:5005
 }
