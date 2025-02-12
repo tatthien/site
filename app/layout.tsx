@@ -9,7 +9,7 @@ import { Providers } from '@/components/providers'
 import { OpenGraph } from '@/lib/og'
 
 import clsx from 'clsx'
-import { Work_Sans } from 'next/font/google'
+import { Source_Code_Pro, Work_Sans } from 'next/font/google'
 
 export const metadata: Metadata = {
   ...OpenGraph,
@@ -21,17 +21,23 @@ const workSans = Work_Sans({
   weight: ['400', '500', '600', '700'],
 })
 
+const sourceCodePro = Source_Code_Pro({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={clsx(workSans.className)} suppressHydrationWarning>
+    <html lang="en" className={clsx(workSans.className, sourceCodePro.variable)} suppressHydrationWarning>
       <head>
         <link rel="icon" href="https://fav.farm/🍱" />
         <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-        <script async src="https://cdn.seline.so/seline.js" data-token="5f9a845fc6de2f6" />
+        {process.env.NODE_ENV === 'production' && <script async src="https://cdn.seline.so/seline.js" data-token="5f9a845fc6de2f6" />}
       </head>
       <body>
         <Providers>

@@ -160,7 +160,8 @@
     }
 
     code {
-      font-size: 1rem;
+      font-size: 0.875rem;
+      font-family: var(--font-mono);
     }
 
     ul {
