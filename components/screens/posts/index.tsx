@@ -18,9 +18,9 @@ export const Layout = ({ post }: Props) => {
       <Card>
         <div className="mb-10 flex flex-col">
           <div>
-            <h1 className="text-3xl">{post.title}</h1>
+            <h1 className="font-semibold text-3xl">{post.title}</h1>
           </div>
-          <div className="mt-1 flex gap-2 text-gray-9 text-sm">
+          <div className="mt-1 flex gap-2 text-base text-gray-11">
             <PublishedTime />
           </div>
         </div>

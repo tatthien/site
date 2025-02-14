@@ -49,7 +49,7 @@ export const Posts = ({ category, limit, group }: PostProps) => {
         .reverse()
         .map((year) => (
           <div key={year}>
-            <div className="text-gray-9">{year}</div>
+            <div className="font-semibold">{year}</div>
             <div>
               <PostList posts={groupedPosts[year]} category={category} />
             </div>
@@ -60,12 +60,18 @@ export const Posts = ({ category, limit, group }: PostProps) => {
 }
 
 const PostList = ({ posts, category }: { posts: Post[]; category: string }) => {
-  return posts.map((post) => (
-    <div key={post.slug} className="flex flex-col justify-between py-2 md:py-1.5">
-      <Link href={`/${category}/${post.slug}`} prefetch={true} className="flex w-full flex-wrap justify-between md:flex-row-reverse md:flex-nowrap">
-        <p className="mb-0 text-gray-9 text-sm slashed-zero tabular-nums md:text-lg">{formatter.date(new Date(post.date))}</p>
-        <p className="mb-0 w-full flex-grow md:w-auto md:flex-auto">{post.title}</p>
-      </Link>
+  return (
+    <div className="flex flex-col gap-3 md:gap-0">
+      {posts.map((post) => (
+        <Link key={post.slug} href={`/${category}/${post.slug}`} prefetch={true} className="block">
+          <article className="flex w-full flex-wrap md:gap-3">
+            <time dateTime={new Date(post.date).toISOString()} className="shrink-0 text-gray-9 slashed-zero tabular-nums">
+              {formatter.date(new Date(post.date))}
+            </time>
+            <h2 className="mb-0 w-full flex-grow font-normal md:w-auto md:flex-auto">{post.title}</h2>
+          </article>
+        </Link>
+      ))}
     </div>
-  ))
+  )
 }

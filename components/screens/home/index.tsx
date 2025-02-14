@@ -74,10 +74,10 @@ export default function Home() {
         </div>
       </Card>
       <Card>
-        <Link href="/w" prefetch={true} className="flex justify-between">
-          <h2 className="py-2 text-gray-9 capitalize">Writing ⇢</h2>
+        <Link href="/w" prefetch={true} className="flex justify-between text-primary">
+          <h2 className="py-2 capitalize">Writing ⇢</h2>
         </Link>
-        <Posts category="w" />
+        <Posts category="w" group />
       </Card>
     </div>
   )
