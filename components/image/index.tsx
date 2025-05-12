@@ -74,7 +74,7 @@ export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
 
   return (
     <div className="mt-2 mb-6">
-      <figure data-mdx-image className="-mx-5">
+      <figure data-mdx-image>
         <Image
           ref={imageRef}
           alt={alt}

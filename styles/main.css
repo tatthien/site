@@ -15,7 +15,7 @@
 
 @layer base {
   :root {
-    --bg: var(--gray-2);
+    --bg: var(--gray-a1);
     --fg: var(--gray-12);
     --muted: var(--gray-8);
     --border: var(--gray-4);
@@ -32,7 +32,6 @@
   * {
     --webkit-font-smoothing: antialiased;
     --moz-osx-font-smoothing: grayscale;
-
     font-variant-ligatures: common-ligatures;
     text-wrap: pretty;
     text-rendering: optimizelegibility;
@@ -81,6 +80,7 @@
     }
 
     button {
+
       &:focus,
       &:active {
         outline: none;
@@ -90,7 +90,7 @@
   }
 
   body {
-    font-size: 1.125rem;
+    line-height: 1.5;
     display: grid;
     grid-template-columns: [start] 0.75rem [left-sidebar] 0 [main] 1fr [right-sidebar] 0 [right-edge] 0.75rem [end];
 
@@ -104,7 +104,8 @@
   }
 
   article {
-    p:not(:first-child),
+
+    p,
     h1:not(:first-child),
     h2:not(:first-child),
     h3:not(:first-child),
@@ -120,13 +121,16 @@
     }
 
     code {
-      font-size: 0.875rem;
-      font-family: var(--font-mono);
+      font-size: 0.85em;
     }
 
     ul {
       li {
         list-style-type: "✦";
+
+        &::marker {
+          color: var(--gray-a7);
+        }
 
         ul li {
           list-style-type: "-";
@@ -157,6 +161,7 @@
   }
 
   html {
+
     code[data-theme*=" "],
     code[data-theme*=" "] span {
       color: var(--shiki-light);
@@ -164,6 +169,7 @@
     }
 
     &.dark {
+
       code[data-theme*=" "],
       code[data-theme*=" "] span {
         color: var(--shiki-dark);
@@ -177,7 +183,7 @@
       counter-reset: line;
     }
 
-    code[data-line-numbers] > [data-line]::before {
+    code[data-line-numbers]>[data-line]::before {
       display: inline-block;
       width: 12px;
       margin-right: 1rem;
@@ -187,15 +193,15 @@
       counter-increment: line;
     }
 
-    code[data-line-numbers-max-digits="2"] > [data-line]::before {
+    code[data-line-numbers-max-digits="2"]>[data-line]::before {
       width: 1.25rem;
     }
 
-    code[data-line-numbers-max-digits="3"] > [data-line]::before {
+    code[data-line-numbers-max-digits="3"]>[data-line]::before {
       width: 1.75rem;
     }
 
-    code[data-line-numbers-max-digits="4"] > [data-line]::before {
+    code[data-line-numbers-max-digits="4"]>[data-line]::before {
       width: 2.25rem;
     }
 
@@ -214,7 +220,6 @@
     pre {
       padding: 16px;
       overflow-x: auto;
-      font-size: 0.875rem;
 
       [data-line] {
         margin-top: 0 !important;

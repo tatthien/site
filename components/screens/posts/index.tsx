@@ -1,6 +1,5 @@
 import type { Post } from '@/types'
 
-import { Card } from '@/components/card'
 import { formatter } from '@/lib/formatter'
 import { MDX } from '@/mdx-components'
 
@@ -14,18 +13,18 @@ export const Layout = ({ post }: Props) => {
   }
 
   return (
-    <div className="flex flex-col gap-6">
-      <Card>
-        <div className="mb-10 flex flex-col">
-          <div>
-            <h1 className="font-semibold text-3xl">{post.title}</h1>
-          </div>
-          <div className="mt-1 flex gap-2 text-base text-gray-11">
-            <PublishedTime />
-          </div>
+    <div className="flex flex-col gap-10">
+      <div className="flex flex-col">
+        <div>
+          <h1 className="font-semibold text-3xl">{post.title}</h1>
         </div>
+        <div className="mt-1 flex gap-2 text-base text-gray-11">
+          <PublishedTime />
+        </div>
+      </div>
+      <div>
         <MDX source={post.content} />
-      </Card>
+      </div>
     </div>
   )
 }

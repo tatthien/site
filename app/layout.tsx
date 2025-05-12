@@ -8,24 +8,9 @@ import { ProgressBar } from '@/components/progress-bar'
 import { Providers } from '@/components/providers'
 import { OpenGraph } from '@/lib/og'
 
-import clsx from 'clsx'
-import { Source_Code_Pro, Source_Sans_3 } from 'next/font/google'
-
 export const metadata: Metadata = {
   ...OpenGraph,
 }
-
-const primaryFont = Source_Sans_3({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['400', '500', '600', '700'],
-})
-
-const monoFont = Source_Code_Pro({
-  variable: '--font-mono',
-  subsets: ['latin'],
-  display: 'swap',
-})
 
 export default function RootLayout({
   children,
@@ -33,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={clsx(primaryFont.className, monoFont.variable)} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="https://fav.farm/🍱" />
         <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
