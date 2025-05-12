@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
-    <div className="flex w-full items-center gap-4">
+    <div className="flex flex-col md:flex-row w-full items-center gap-4">
       <div className="text-gray-10 text-sm">{`Copyright © ${new Date().getFullYear()} Daniel Nguyen`}</div>
-      <span className="text-gray-10">•</span>
+      <span className="text-gray-10 hidden md:block">•</span>
       <nav className="flex gap-4">
         <a href="https://github.com/tatthien" rel="noreferrer" aria-label="Github" className="flex flex-1 items-center gap-2 text-gray-9 text-sm">
           GitHub
