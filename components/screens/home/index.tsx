@@ -1,13 +1,10 @@
-import { ArcCard } from '@/components/arc-card'
 import { Posts } from '@/components/posts'
-
-import { Github, Linkedin, Twitter } from 'lucide-react'
 import Link from 'next/link'
 
 const projects = [
   {
     name: 'Church election app',
-    description: "A micro app for my local church's leadership elections",
+    description: 'A micro app for my local church\'s leadership elections',
     url: 'https://vote.thien.dev',
   },
   {

@@ -10,7 +10,12 @@ const Footer = () => {
         <a href="https://x.com/hey_thien" rel="noreferrer" aria-label="Twitter" className="flex flex-1 items-center gap-2 text-gray-9 text-sm">
           Twitter
         </a>
-        <a href="https://www.linkedin.com/in/tatthien/" rel="noreferrer" aria-label="Linkedin" className="flex flex-1 shrink-0 items-center gap-2 text-gray-9 text-sm">
+        <a
+          href="https://www.linkedin.com/in/tatthien/"
+          rel="noreferrer"
+          aria-label="Linkedin"
+          className="flex flex-1 shrink-0 items-center gap-2 text-gray-9 text-sm"
+        >
           LinkedIn
         </a>
       </nav>

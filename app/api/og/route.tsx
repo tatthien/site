@@ -8,7 +8,8 @@ type Parameters = {
 }
 
 /*
- * To assist with generating dynamic Open Graph (OG) images, you can use the Vercel @vercel/og library to compute and generate social card images using Vercel Edge Functions.
+ * To assist with generating dynamic Open Graph (OG) images, you can use the Vercel @vercel/og library
+ * to compute and generate social card images using Vercel Edge Functions.
  * @see: https://vercel.com/docs/functions/og-image-generation
  *
  * You can use the following code sample to explore using parameters and different content types with next/og.

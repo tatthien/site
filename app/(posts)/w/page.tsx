@@ -1,4 +1,3 @@
-import { Card } from '@/components/card'
 import { Posts } from '@/components/posts'
 import { OpenGraph } from '@/lib/og'
 

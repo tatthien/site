@@ -179,7 +179,7 @@ export default function Page() {
 
         <Section title="Projects">
           <div className="flex flex-col gap-4">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div key={project.name}>
                 <h4 className="font-semibold">
                   <a href={project.link} target="_blank" className="text-primary hover:underline" rel="noreferrer">

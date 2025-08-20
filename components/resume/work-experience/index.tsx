@@ -36,7 +36,7 @@ export function WorkExperience({
         <div>Main responsibilities:</div>
         <ul className="mb-0 ml-2">
           {responsibilities.map((responsibility) => (
-            <li key={responsibility} className="pl-1" style={{ listStyleType: `"-"` }}>
+            <li key={responsibility} className="pl-1" style={{ listStyleType: '"-"' }}>
               {responsibility}
             </li>
           ))}
