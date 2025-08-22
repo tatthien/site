@@ -1,7 +1,7 @@
 const date = (input: Date): string => {
-  return new Intl.DateTimeFormat('en-CA', {
+  return new Intl.DateTimeFormat('en-US', {
     year: 'numeric',
-    month: '2-digit',
+    month: 'long',
     day: '2-digit',
   }).format(input)
 }

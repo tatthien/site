@@ -30,7 +30,7 @@ const components: MDXComponents = {
     )
   },
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <blockquote className={cn('border-gray-6 border-l-4 px-4 text-gray-9 md:text-lg md:leading-relaxed', className)} {...props} />
+    <blockquote className={cn('border-gray-6 border-l-2 px-4 text-gray-10 md:text-lg md:leading-relaxed', className)} {...props} />
   ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-hidden overflow-y-auto">
@@ -92,8 +92,8 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
               rehypePrettyCode,
               {
                 theme: {
-                  dark: 'github-dark',
-                  light: 'github-dark',
+                  dark: 'github-light',
+                  light: 'github-light',
                 },
                 keepBackground: false,
                 defaultLang: 'plain',

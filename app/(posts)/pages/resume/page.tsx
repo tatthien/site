@@ -1,4 +1,3 @@
-import { Card } from '@/components/card'
 import { Activity } from '@/components/resume/activity'
 import { Section } from '@/components/resume/section'
 import { WorkExperience } from '@/components/resume/work-experience'
@@ -40,7 +39,7 @@ const workExperiences = [
     website: 'https://fanzeal.com',
     title: 'Senior Full-stack Developer',
     start: 'Feb 2023',
-    end: 'Present',
+    end: 'Dec 2024',
     responsibilities: [
       'Led front-end and mobile development using React & React Native',
       'Built admin dashboard in both front-end (Next.js) and back-end (Nest.js) to help administrators manage all the resources related to the platform',
@@ -148,82 +147,80 @@ const activities = [
 
 export default function Page() {
   return (
-    <Card>
-      <div className="article flex flex-col gap-12">
-        <Header />
-        <Section title="Skills and Technologies">
-          <ul className="list-none">
-            <li className="list-none">- JavaScript/TypeScript, Golang</li>
-            <li className="list-none">- React, Next.js, Node.js, WordPress, TailwindCSS, SCSS</li>
-            <li className="list-none">- MySQL, PostgreSQL, MongoDB</li>
-            <li className="list-none">- AWS services, Docker, CI/CD (GitLab, GitHub, BitBucket)</li>
-          </ul>
-        </Section>
+    <div className="article flex flex-col gap-6">
+      <Header />
+      <Section title="Skills and Technologies">
+        <ul className="list-none">
+          <li className="list-none">- JavaScript/TypeScript, Golang</li>
+          <li className="list-none">- React, Next.js, Node.js, WordPress, TailwindCSS, SCSS</li>
+          <li className="list-none">- MySQL, PostgreSQL, MongoDB</li>
+          <li className="list-none">- AWS services, Docker, CI/CD (GitLab, GitHub, BitBucket)</li>
+        </ul>
+      </Section>
 
-        <Section title="Work Experience">
-          {workExperiences.map((workExperience, index) => (
-            <>
-              <WorkExperience
-                key={workExperience.company}
-                company={workExperience.company}
-                website={workExperience.website}
-                title={workExperience.title}
-                start={workExperience.start}
-                end={workExperience.end}
-                responsibilities={workExperience.responsibilities}
-              />
-              {index < workExperiences.length - 1 && <div className="my-4 h-[1px] bg-gray-4" />}
-            </>
+      <Section title="Work Experience">
+        {workExperiences.map((workExperience, index) => (
+          <>
+            <WorkExperience
+              key={workExperience.company}
+              company={workExperience.company}
+              website={workExperience.website}
+              title={workExperience.title}
+              start={workExperience.start}
+              end={workExperience.end}
+              responsibilities={workExperience.responsibilities}
+            />
+            {index < workExperiences.length - 1 && <div className="my-4 h-[1px] bg-gray-4" />}
+          </>
+        ))}
+      </Section>
+
+      <Section title="Projects">
+        <div className="flex flex-col gap-4">
+          {projects.map((project) => (
+            <div key={project.name}>
+              <h4 className="font-semibold">
+                <a href={project.link} target="_blank" className="text-primary hover:underline" rel="noreferrer">
+                  {project.name}
+                </a>
+              </h4>
+              <p className="mb-0">{project.description}</p>
+            </div>
           ))}
-        </Section>
+        </div>
+      </Section>
 
-        <Section title="Projects">
-          <div className="flex flex-col gap-4">
-            {projects.map((project) => (
-              <div key={project.name}>
-                <h4 className="font-semibold">
-                  <a href={project.link} target="_blank" className="text-primary hover:underline" rel="noreferrer">
-                    {project.name}
-                  </a>
-                </h4>
-                <p className="mb-0">{project.description}</p>
-              </div>
-            ))}
-          </div>
-        </Section>
+      <Section title="Activities">
+        {activities.map((workExperience, index) => (
+          <>
+            <Activity
+              key={workExperience.org}
+              org={workExperience.org}
+              website={workExperience.website}
+              title={workExperience.title}
+              start={workExperience.start}
+              end={workExperience.end}
+              responsibilities={workExperience.responsibilities}
+            />
+            {index < activities.length - 1 && <div className="my-4 h-[1px] bg-gray-4" />}
+          </>
+        ))}
+      </Section>
 
-        <Section title="Activities">
-          {activities.map((workExperience, index) => (
-            <>
-              <Activity
-                key={workExperience.org}
-                org={workExperience.org}
-                website={workExperience.website}
-                title={workExperience.title}
-                start={workExperience.start}
-                end={workExperience.end}
-                responsibilities={workExperience.responsibilities}
-              />
-              {index < activities.length - 1 && <div className="my-4 h-[1px] bg-gray-4" />}
-            </>
-          ))}
-        </Section>
+      <Section title="Education">
+        <div>
+          <h4 className="font-semibold">University of Science, Ho Chi Minh City, Vietnam</h4>
+          <p className="mb-0">Sep 2010 - Sep 2014</p>
+          <p className="mb-0">Major in Information Technology</p>
+        </div>
+      </Section>
 
-        <Section title="Education">
-          <div>
-            <h4 className="font-semibold">University of Science, Ho Chi Minh City, Vietnam</h4>
-            <p className="mb-0">Sep 2010 - Sep 2014</p>
-            <p className="mb-0">Major in Information Technology</p>
-          </div>
-        </Section>
-
-        <Section title="Interests">
-          <div>
-            <p>Tech, startup, design, stickers and classic motorcycles</p>
-          </div>
-        </Section>
-      </div>
-    </Card>
+      <Section title="Interests">
+        <div>
+          <p>Tech, startup, design, stickers and classic motorcycles</p>
+        </div>
+      </Section>
+    </div>
   )
 }
 
@@ -233,7 +230,7 @@ function Header() {
       <h2 className="font-semibold text-lg">Thien Nguyen (aka. Daniel)</h2>
       <div>Software Engineer</div>
       <div>Ho Chi Minh city, Vietnam</div>
-      <div className="flex flex-col md:flex-row md:gap-4">
+      <div className="flex flex-col">
         <span>+84 033 9646 120</span>
         <a href="mailto:me@thien.dev" className="text-primary hover:underline">
           me@thien.dev

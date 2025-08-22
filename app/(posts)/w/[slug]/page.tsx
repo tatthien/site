@@ -1,6 +1,5 @@
 import type { Post } from '@/types'
 
-import { Breadcrumb } from '@/components/breadcrumb'
 import { Layout } from '@/components/screens/posts'
 import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
@@ -75,7 +74,6 @@ export default function Page({ params }: PageProps) {
 
   return (
     <div className="flex flex-col gap-6">
-      <Breadcrumb post={post} />
       <Layout post={post} />
     </div>
   )

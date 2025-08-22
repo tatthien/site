@@ -1,6 +1,5 @@
 import type { Post } from '@/types'
 
-import { formatter } from '@/lib/formatter'
 import { getPosts } from '@/lib/mdx'
 
 import Link from 'next/link'
@@ -61,13 +60,10 @@ export const Posts = ({ category, limit, group }: PostProps) => {
 
 const PostList = ({ posts, category }: { posts: Post[]; category: string }) => {
   return (
-    <div className="flex flex-col gap-3 md:gap-0">
+    <div className="flex flex-col">
       {posts.map((post) => (
         <Link key={post.slug} href={`/${category}/${post.slug}`} prefetch={true} className="block">
-          <article className="flex w-full flex-wrap md:gap-3">
-            <time dateTime={new Date(post.date).toISOString()} className="shrink-0 text-gray-9 slashed-zero tabular-nums">
-              {formatter.date(new Date(post.date))}
-            </time>
+          <article className="flex w-full flex-wrap">
             <h2 className="mb-0 w-full flex-grow font-normal md:w-auto md:flex-auto">{post.title}</h2>
           </article>
         </Link>
