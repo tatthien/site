@@ -21,10 +21,10 @@ export default function Home() {
       <div>
         <p className="mb-4">
           Hi! I'm <Badge label="Daniel Nguyen" logo="/img/avatar.webp" />.
-          I'm a Software Engineer specializing in <Badge label="JavaScript" logo="/img/javascript-logo.webp" />,{' '}
-          including its ecosystem like <Badge label="React" logo="/img/react-logo.webp" />,{' '}
-          <Badge label="React Native" logo="/img/react-logo.webp" />,{' '}
-          <Badge label="Next.js" logo="/img/nextjs-logo.svg" />,{' '}
+          I'm a Software Engineer specializing in <Badge label="JavaScript" logo="/img/js-logo.svg" />,{' '}
+          including its ecosystem like <Badge label="React" logo="/img/react-logo.svg" logoSize={22} />,{' '}
+          <Badge label="React Native" logo="/img/react-logo.svg" />,{' '}
+          <Badge label="Next.js" logo="/img/nextjs-logo.svg" logoSize={22} />,{' '}
           and <Badge label="Node.js" logo="/img/nodejs-logo.svg" />.{' '}
           I also work with Go on occasion. This is my digital garden where I share my interest in a little of everything that crosses my mind, but mostly
           about technology.
@@ -57,15 +57,17 @@ export default function Home() {
   )
 }
 
-function Badge({ label, logo }: { label: string, logo: string }) {
+function Badge({ label, logo, logoSize = 20 }: { label: string, logo: string, logoSize?: number }) {
   return (
     <span className='inline-flex items-baseline gap-1 group relative'>
       <Image
         src={logo}
         alt="Avatar"
-        width={20}
-        height={20}
+        width={logoSize}
+        height={logoSize}
         className="rounded-sm flex-shrink-0 self-center"
+        fetchPriority="high"
+        loading="eager"
       />
       <span className="text-nowrap whitespace-nowrap">{label}</span>
     </span>
