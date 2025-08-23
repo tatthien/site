@@ -22,7 +22,7 @@ Hàm `Sort` nhận vào data là một `Interface` gồm có 3 methods: `Len`, `
 
 Vì vậy để sort được một list dữ liệu, mình cần tạo ra một struct type implement 3 method tương ứng.
 
-```go
+```go showLineNumbers
 type TagsByName []Tag
 
 func (tags TagsByName) Len() int {
@@ -40,7 +40,7 @@ func (tags TagsByName) Swap(i, j int) {
 
 Và sử dụng như sau:
 
-```go
+```go showLineNumbers
 sortedTags := engine.Tags
 sort.Sort(model.TagsByName(sortedTags))
 ```
@@ -56,7 +56,7 @@ Chúng ta không muốn mỗi lần thay đổi content, html, css thì phải b
 
 Để quét thư mục và file, mình sẽ dụng `filepath.Walk`
 
-```go
+```go showLineNumbers
 if err := filepath.Walk(".", watchDir); err != nil {
     log.Fatal(err)
 }
@@ -64,7 +64,7 @@ if err := filepath.Walk(".", watchDir); err != nil {
 
 `Walk` sẽ nhận vào một callback, mình sẽ viết hàm callback này để xử lí một vài logic.
 
-```go
+```go showLineNumbers
 func watchDir(path string, info os.FileInfo, err error) error {
 	if err != nil {
 		return err
@@ -81,7 +81,7 @@ func watchDir(path string, info os.FileInfo, err error) error {
 }
 ```
 
-```go
+```go showLineNumbers
 go func() {
     for {
         select {
@@ -109,7 +109,7 @@ Nhưng vậy mỗi lần có sự thay đổi nội dung file hoặc thêm, xóa
 
 Đây là một đoạn code để hiển thị list bài viết ngoài trang chủ.
 
-```html
+```html showLineNumbers
 <ul class="post-list">
     {{ range .Posts }}
     {{ if eq .Type "posts"}}
@@ -132,7 +132,7 @@ Nếu để ý sẽ thấy có một chỗ mình gọi `{{ join .Tag ", "}}`, n�
 
 Tuy nhiên go template không hỗ trợ bạn gọi `join` trong template. Thay vào đó chúng ta phải định nghĩa hàm `join` này thông qua `template.FuncMap`.
 
-```go
+```go showLineNumbers
 funcMap := template.FuncMap{
     "safe_html": func(s string) template.HTML {
         return template.HTML(s)
