@@ -19,6 +19,21 @@ const menus = [
   },
 ]
 
+const socialLinks = [
+  {
+    label: 'GitHub',
+    href: 'https://github.com/tatthien',
+  },
+  {
+    label: 'Twitter',
+    href: 'https://x.com/hey_thien',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/tatthien',
+  },
+]
+
 export function MainNav() {
   return (
     <div className="flex flex-col lg:gap-5">
@@ -30,9 +45,13 @@ export function MainNav() {
         ))}
       </ul>
       <ul className="flex gap-6 lg:flex-col lg:gap-0">
-        <a href="https://github.com/tatthien" className="text-right text-sm text-gray-9">GitHub</a>
-        <a href="https://x.com/hey_thien" className="text-right text-sm text-gray-9">Twitter</a>
-        <a href="https://linkedin.com/in/tatthien" className="text-right text-sm text-gray-9">LinkedIn</a>
+        {socialLinks.map(({ label, href }) => (
+          <li key={href} className="text-right text-sm">
+            <a href={href} target="_blank" className="text-gray-9">
+              {label}
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   )
