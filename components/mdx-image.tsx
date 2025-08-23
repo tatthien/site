@@ -14,7 +14,7 @@ interface MDXImageProps extends ImageProps {
 
 const MAX_SCALE_WIDTH = 1024
 
-export default function MDXImage({ caption, alt, ...props }: MDXImageProps) {
+export function MDXImage({ caption, alt, ...props }: MDXImageProps) {
   const imageRef = useRef<HTMLImageElement>(null)
   const [isZoomed, setIsZoomed] = useState(false)
 

@@ -15,7 +15,7 @@ const menus = [
   },
   {
     label: 'Resume',
-    href: '/pages/resume',
+    href: '/p/resume',
   },
 ]
 
@@ -47,7 +47,7 @@ export function MainNav() {
       <ul className="flex gap-6 lg:flex-col lg:gap-0">
         {socialLinks.map(({ label, href }) => (
           <li key={href} className="text-right text-sm">
-            <a href={href} target="_blank" className="text-gray-9">
+            <a href={href} className="text-gray-9">
               {label}
             </a>
           </li>

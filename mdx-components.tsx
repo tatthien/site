@@ -2,8 +2,6 @@ import type { MDXComponents } from 'mdx/types'
 import type { MDXRemoteProps } from 'next-mdx-remote/rsc'
 import type { PluggableList } from 'unified'
 
-import MDXImage from '@/components/image'
-import Link from '@/components/link'
 import { cn } from '@/lib/cn'
 
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -12,6 +10,7 @@ import type React from 'react'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import { MDXImage } from './components/mdx-image'
 
 const components: MDXComponents = {
   Image: ({ caption, alt, ...props }) => <MDXImage {...props} caption={caption} alt={alt} />,
@@ -24,9 +23,9 @@ const components: MDXComponents = {
   },
   a: ({ children, href }) => {
     return (
-      <Link href={href} className="text-primary hover:underline">
+      <a target="_blank" rel="noopener noreferrer nofollow" className="text-primary hover:underline" href={href}>
         {children}
-      </Link>
+      </a>
     )
   },
   blockquote: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (

@@ -63,7 +63,7 @@ const PostList = ({ posts, category }: { posts: Post[]; category: string }) => {
     <div className="flex flex-col">
       {posts.map((post) => (
         <Link key={post.slug} href={`/${category}/${post.slug}`} prefetch={true} className="block">
-          <article className="flex w-full flex-wrap">
+          <article className="flex w-full flex-wrap md:gap-2">
             <h2 className="mb-0 w-full flex-grow font-normal md:w-auto md:flex-auto">{post.title}</h2>
           </article>
         </Link>
